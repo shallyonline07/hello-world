@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-
+  showStatus: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.showStatus = false;
+  }
+
+  toggleStatus() {
+    this.showStatus = !this.showStatus;
+    // console.log("uyyuy");
+    
   }
 
 }
