@@ -1,0 +1,39 @@
+<h6 class="mt-5">==== Angular build-in Pipes ====</h6>
+
+<div>Date Pipe</div>
+Today's Date: {{ currentDate | date: 'mediumDate' }}
+
+
+<div class="mt-3">upper case Pipe</div>
+{{ 'hello how are you' | uppercase }}
+<br>
+{{ lowercaseString | uppercase }}
+
+
+<div class="mt-3">lower case Pipe</div>
+{{ uppercaseString | lowercase }}
+
+
+<div class="mt-3">currency Pipe</div>
+{{ amountValue | currency }}
+
+
+<div class="mt-3">decimal Pipe</div>
+{{ decimalValue | number: '8.1-4' }}
+
+
+
+<div class="mt-3">percentage Pipe</div>
+{{ someValue | percent }}
+
+
+<h6 class="mt-5">==== Angular custom Pipes ====</h6>
+Custom pipe without parameters:
+{{ name | appendLastname }}
+<br>
+<!-- Custom pipe with parameters:
+{{ name | appendLastname: 'Ms' }} -->
+
+
+
+

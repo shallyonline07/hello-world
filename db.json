@@ -1,0 +1,24 @@
+{
+  "students": [
+      {
+        "name": "Alex",
+        "age": 6,
+        "address": "Bowmanville"
+      },
+      {
+        "name": "Julia",
+        "age": 3,
+        "address": "Scarborough"
+      },
+      {
+          "name": "Crystal",
+          "age": 10,
+          "address": "Scarborough"
+      },
+      {
+          "name": "Rajesh",
+          "age": 8,
+          "address": "Whitby"
+      }
+    ]  
+}

@@ -1,0 +1,67 @@
+<h4>===Data Binding ====</h4>
+<div>
+    1. One Way Binding 
+</div>
+<ul>
+    <li>Component to View
+        <ul>
+            <li>Interpolation</li>
+            <li>Property Binding: Bind component property to HTML element property</li>
+            <li>Attribute Binding: Sometimes there is no HTML element property to bind to, so we can use [attr.propertyName]. for ex: [att.colspan]</li>
+        </ul>
+    </li>
+    <li>View to Component
+        <ul>
+            <li>Event Binding: (click)</li>
+        </ul>
+    </li>
+</ul>
+
+<div>
+    2. Two Way Binding:  when it performs property binding+ event binding. property binding is done first then event binding[(ngModel)]... We need to import FormsModule from '@angular/forms' in app.module.ts file.
+</div>
+
+
+<h6 [class]="marginTop">=== Property Binding Example ===</h6>
+<div [class]="colorName">Hello, How are you??</div>
+<div [style]="borderValue">Hello, How are you??</div>
+<button [disabled]="isDisabled">click me</button>
+<p>
+
+    
+
+    <a [href]="url" target="_blank">Open URL</a>
+</p>
+
+<h6 class="mt-5">=== Attribute Binding Example ===</h6>
+<table class="table table-hover">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td [attr.colspan]="colSpanValue">1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+</table>
+
+
+<h6 class="mt-5">=== Event Binding Example ===</h6>
+<button (click)="logSomeValue()">Click Me</button>
+
+
+<h6 class="mt-5">=== Two Way Binding Example ===</h6>
+
+<input type="text" [(ngModel)]="someValue">
+<!-- <input type="text" [value]="someValue" (input)="updateValue($event)"> -->
+<p>You entered: {{ someValue }}</p>
+<button (click)="clearInputValue()">Clear value</button>
+<h5 class="mt-2">another ng model example</h5>
+<input type="text" [(ngModel)]= "ss">
+<p>{{ss}}</p>

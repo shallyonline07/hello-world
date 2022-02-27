@@ -8,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   public headerTitle: string;
 
-  constructor() { }
+  constructor() {
+    console.log('in constructor');
+    
+   }
 
   ngOnInit(): void {
     console.log('hello');
     this.headerTitle = 'Welcome to my page';
-    
   }
 
 }

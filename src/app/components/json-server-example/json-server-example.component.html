@@ -1,0 +1,19 @@
+<h3> ===== Json Server Example =====</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Sr. no.</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of data; let i=index">
+            <td>{{ i+ 1 }}</td>
+            <td>{{ d.name }}</td>
+            <td>{{ d.address }}</td>
+            <td>{{ d.address }}</td>
+        </tr>
+    </tbody>
+</table>

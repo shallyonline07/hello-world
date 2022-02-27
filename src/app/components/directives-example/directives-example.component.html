@@ -1,0 +1,80 @@
+<h6 class="mt-5">=====Directives, Hostlistener =====</h6>
+
+<b>1. Structural Directives:</b>
+<ul>
+    <li>Structural directives are responsible for HTML layout. They shape or reshape the DOM's structure, typically by
+        adding, removing, or manipulating elements</li>
+    <li>Start with *</li>
+    <li>Ex: *ngIf, *ngFor, *ngSwitch</li>
+</ul>
+
+<div *ngIf="true">shally</div>
+<div *ngFor="let data of student1">
+    {{data.name}}
+</div>
+
+
+*ngIf -->
+<div *ngIf="true">Hello Hello Hello</div>
+
+
+<br>
+*ngFor -->
+<div *ngFor="let data of student">
+    {{data.name}}
+</div>
+<br>
+
+<input type="text" [(ngModel)]="fruit">
+<br>
+*ngSwitch --->
+<div [ngSwitch]="fruit">
+    <div *ngSwitchCase="'mango'">winner</div>
+    <div *ngSwitchCase="'peach'">runner up</div>
+    <div *ngSwitchCase="'banana'">third position</div>
+    <div *ngSwitchDefault>Loser</div>
+</div>
+
+
+<b>2. Attribute Directives:</b>
+<ul>
+    <li>Attribute directives are mainly used to change/modify the behavior of the html element. </li>
+    <li>They are enclosed in [] </li>
+    <li>Ex: [ngClass], [ngStyle], [(ngModel)]</li>
+</ul>
+
+
+<br>
+ngClass -->
+<div [ngClass]="{
+    'text-primary bg-dark size': age === 20,
+    'text-danger': age > 20
+    }">
+    Example of ngClass directive.
+</div>
+
+<!-- <div [ngClass]="classNames">
+    Example of ngClass directive.
+</div> -->
+
+<div [ngClass]="age > 20 ? 'text-primary' : 'text-danger size'">
+    Example of ngClass directive.
+</div>
+
+<br>
+ngStyle -->
+<div [ngStyle]="{'color' : age > 20 ? 'purple' : 'green'}">
+    Example of ngStyle directive.
+</div>
+<!-- <div [ngStyle]="styleNames">
+    Example of ngStyle directive.
+</div> -->
+
+
+<br>
+<b>3. Custom Directives:</b>
+<p appHighlight> Me Highlighted !!</p>
+
+<input type="text" appKeyMouseEvents>
+
+<button appKeyMouseEvents appHighlight>Click me</button>
