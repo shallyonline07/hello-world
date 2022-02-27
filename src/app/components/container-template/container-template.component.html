@@ -1,0 +1,63 @@
+<br>
+    <h6 class="mt-4">=== ng-contianer ====</h6>
+    <pre>
+        - The ng-container does not render in the DOM. Only the content inside it is rendered. It is a syntex element.
+        - It makes the DOM light weight
+        - We usually use it to render inline content.
+        - We cann't apply css classes.
+    </pre>
+    <b>Without ng-container:</b>
+    <div *ngIf="true">
+        <div *ngFor="let data of studentData">
+            {{ data. name }}
+        </div>
+    </div>
+
+    <b>Without ng-container: It removed an extra div from DOM</b>
+    <ng-container *ngIf="true">
+        <div *ngFor="let data of studentData">
+            {{ data. name }}
+        </div>
+    </ng-container>
+    
+
+
+    
+    <br>
+    <h6 class="mt-4">=== ng-template ====</h6>
+    <pre>
+        - The ng-template defines a template that is not rendered by default.
+        - You can re-use the content inside ng-template multiple times by using *ngTemplateOutlet directive
+        - You can also provide data to ng-template using context
+        - We cann't apply css classes.
+    </pre>
+
+    <b>ng-template without context:</b>
+    <ng-container *ngTemplateOutlet="sampleTemp"></ng-container>
+    <ng-container *ngTemplateOutlet="sampleTemp"></ng-container>
+
+    <b>ng-template with context:</b>
+    <ng-container *ngTemplateOutlet="sampleTempWithContext;
+        context: {
+            studentName: 'ankush',
+            studentAge: '40'
+        }">
+    </ng-container>
+
+    <ng-container *ngTemplateOutlet="sampleTempWithContext;
+        context: {
+            studentName: 'maahi',
+            studentAge: '4'
+        }">
+    </ng-container>
+
+
+    <ng-template #sampleTemp>
+        <div>I'm a div</div>
+        <lable>I'm a label</lable>
+        <p>I'm a paragraph</p>
+    </ng-template>
+    
+    <ng-template #sampleTempWithContext let-name="studentName" let-age="studentAge">
+        <p>Welcome {{ name }}. You age is {{ age }}</p>
+    </ng-template>

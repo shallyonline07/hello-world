@@ -29,7 +29,7 @@
     There are five different types of guards and each of them is called in a particular sequence. The router’s behavior is modified differently depending on which guard is used. The guards are:
     </div>
     
-    <div *ngIf="showStatus">Approved</div>
+    <ng-container *ngIf="showStatus">Approved</ng-container>
     <ng-template #displayMessage>
         <label>
             What a wonderful day !!!
@@ -82,6 +82,8 @@
 
     <app-directives-example></app-directives-example>
 
+    <app-container-template></app-container-template>
+    
 </div>
 
 

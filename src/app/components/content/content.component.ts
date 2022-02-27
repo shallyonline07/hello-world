@@ -14,6 +14,7 @@ export interface Student {
 export class ContentComponent implements OnInit {
   showStatus: boolean;
   studentData: Student[];
+  age = 65;
 
   constructor() { }
 
