@@ -23,6 +23,14 @@ export class ContainerTemplateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const sum1 = this.computeSum(10, 20);
+    const sum2 = this.computeSum(100, 300);
+  }
+
+  computeSum(x: number, y: number): number {
+    let a = x;
+    let b = y;
+    return a + b;
   }
 
 }
