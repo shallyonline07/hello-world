@@ -1,5 +1,25 @@
-<h6 class="mt-4">===== @ViewChild ========</h6>
+<h6 class="mt-4">===== @ViewChild Decorator ========</h6>
+<pre>
+    - It is a Decorator
+    
+    Q: Use ??
+    - 1.a) It can be used to refer a child component
+    - 1.b) We can directly call the method of child component and we can pass any data to the child component.
 
+    - 2) It can be used to refer an HTML element from the template and we can access native DOM element.
+    
+    Q: When is the reference to child component available in the parent component ??
+    - The reference to the child component is not available early in the life cycle of the parent component
+    - The reference to the child component is available in "AfterViewInit" life cycle hook of the parent component
+</pre>
+
+
+use 1:
+<button (click)="calculateSum()">Click to get sum</button>
 <app-second #second></app-second>
 
-<button (click)="calculateSum()">compute sum</button>
+
+use 2:
+<p #para>
+    I am a paragraph
+</p>
