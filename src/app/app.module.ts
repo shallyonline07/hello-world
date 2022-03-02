@@ -18,8 +18,10 @@ import { DirectivesExampleComponent } from './components/directives-example/dire
 import { HighlightDirective } from './custom-directives/highlight.directive';
 import { KeyMouseEventsDirective } from './custom-directives/key-mouse-events.directive';
 import { ContainerTemplateComponent } from './components/container-template/container-template.component';
-import { FirstComponent } from './components/view-child/first/first.component';
-import { SecondComponent } from './components/view-child/second/second.component';
+import { OneComponent } from './components/data-sharing/one/one.component';
+import { TwoComponent } from './components/data-sharing/two/two.component';
+import { ParentComponent } from './components/view-child/parent/parent.component';
+import { ChildComponent } from './components/view-child/child/child.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,10 @@ import { SecondComponent } from './components/view-child/second/second.component
     HighlightDirective,
     KeyMouseEventsDirective,
     ContainerTemplateComponent,
-    FirstComponent,
-    SecondComponent,
+    OneComponent,
+    TwoComponent,
+    ParentComponent,
+    ChildComponent,
   ],
   imports: [
     BrowserModule,

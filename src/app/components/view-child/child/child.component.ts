@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-second',
-  templateUrl: './second.component.html',
-  styleUrls: ['./second.component.scss']
+  selector: 'app-child',
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.scss']
 })
-export class SecondComponent implements OnInit {
+export class ChildComponent implements OnInit {
   sum: number;
   message: string = 'I am a messgae in child component';
   constructor() { }
