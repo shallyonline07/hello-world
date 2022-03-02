@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { SecondComponent } from '../second/second.component';
 
 @Component({
@@ -7,25 +7,34 @@ import { SecondComponent } from '../second/second.component';
   styleUrls: ['./first.component.scss']
 })
 export class FirstComponent implements OnInit, AfterViewInit {
-  @ViewChild('second') second: SecondComponent;
-  @ViewChild('para') para: ElementRef;
-  constructor() { }
+  @ViewChild('second') secondComp: SecondComponent;  // Sharing data b/w component example
+  @ViewChild('para') paragraph: ElementRef;
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    console.log(this.second);
-    console.log(this.para);
+    console.log('onInit');
+    console.log(this.secondComp);   // no value
+    console.log(this.paragraph);    // no value
+
+    // // below will not work
+    // this.secondComp.computeSum(100, 200);
+    // console.log(this.secondComp.message);
   }
 
   ngAfterViewInit(): void {
-    console.log(this.second);
-    console.log(this.para);
-    this.para.nativeElement.style.color = 'red';
+    console.log('after view init');
+    console.log(this.secondComp);   // Value is there
+    console.log(this.paragraph);     // Value is there
+
+    this.paragraph.nativeElement.style.color = 'red';
+    
+    this.secondComp.computeSum(100, 200);
+    console.log(this.secondComp.message);
+    this.changeDetectorRef.detectChanges();
   }
 
   calculateSum() {
-    this.second.computeSum(10, 20);
+    this.secondComp.computeSum(10, 20);
   }
-
-
 
 }

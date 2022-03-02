@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecondComponent implements OnInit {
   sum: number;
+  message: string = 'I am a messgae in child component';
   constructor() { }
 
   ngOnInit(): void {

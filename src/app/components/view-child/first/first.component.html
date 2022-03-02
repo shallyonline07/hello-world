@@ -8,9 +8,9 @@
 
     - 2) It can be used to refer an HTML element from the template and we can access native DOM element.
     
-    Q: When is the reference to child component available in the parent component ??
-    - The reference to the child component is not available early in the life cycle of the parent component
-    - The reference to the child component is available in "AfterViewInit" life cycle hook of the parent component
+    Q: When is the reference in viewChild available in the component ??
+    - The reference is not available early in the life cycle of the component
+    - The reference is available in "AfterViewInit" life cycle hook of the component
 </pre>
 
 
@@ -18,6 +18,7 @@ use 1:
 <br>
 <button (click)="calculateSum()">Click to get sum</button>
 <app-second #second></app-second>
+<!-- #second is the template reference variable -->
 
 
 <br><br>
