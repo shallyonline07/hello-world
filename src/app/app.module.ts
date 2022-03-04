@@ -22,6 +22,9 @@ import { OneComponent } from './components/data-sharing/one/one.component';
 import { TwoComponent } from './components/data-sharing/two/two.component';
 import { ParentComponent } from './components/view-child/parent/parent.component';
 import { ChildComponent } from './components/view-child/child/child.component';
+import { Child1Component } from './components/view-child/child1/child1.component';
+import { Parent1Component } from './components/view-child/parent1/parent1.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { ChildComponent } from './components/view-child/child/child.component';
     TwoComponent,
     ParentComponent,
     ChildComponent,
+    Child1Component,
+    Parent1Component,
+  
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./child.component.scss']
 })
 export class ChildComponent implements OnInit {
-  sum: number;
+  sum: number = 0;
   message: string = 'I am a messgae in child component';
   constructor() { }
 
@@ -14,7 +14,7 @@ export class ChildComponent implements OnInit {
   }
 
   computeSum(x: number, y: number) {
-    this.sum = x + y;
+    this. sum = x + y;
   }
 
 }

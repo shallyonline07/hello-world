@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, HostListener, ChangeDetectorRef } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
 
 @Component({
@@ -9,8 +9,29 @@ import { ChildComponent } from '../child/child.component';
 export class ParentComponent implements OnInit {
   @ViewChild('child') childComp: ChildComponent;  // Sharing data b/w component example
   @ViewChild('para') paragraph: ElementRef;
-  constructor() { }
+  
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
+
+  ngAfterViewInit(): void {
+    console.log('after view init');
+    console.log(this.childComp);   // Value is there
+    console.log(this.paragraph);     // Value is there
+
+    this.childComp.computeSum(100, 200);
+    console.log(this.childComp.message);
+    // this.changeDetectorRef.detectChanges();
+  }
+
+  calculateSum() {
+    this.childComp.computeSum(10, 20);
+  }
+
+  applyStyles() {
+    this.paragraph.nativeElement.style.color = 'red';
+  }
+
+    
   ngOnInit(): void {
     console.log('onInit');
     console.log(this.childComp);   // no value
@@ -21,19 +42,5 @@ export class ParentComponent implements OnInit {
     // console.log(this.childComp.message);
   }
 
-  ngAfterViewInit(): void {
-    console.log('after view init');
-    console.log(this.childComp);   // Value is there
-    console.log(this.paragraph);     // Value is there
-
-    this.paragraph.nativeElement.style.color = 'red';
-    
-    // this.childComp.computeSum(100, 200);
-    console.log(this.childComp.message);
-  }
-
-  calculateSum() {
-    this.childComp.computeSum(10, 20);
-  }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonServiceService } from 'src/app/services/common-service.service';
 
 @Component({
   selector: 'app-one',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OneComponent implements OnInit {
 
-  constructor() { }
+  constructor(private commonServiceService: CommonServiceService) { }
 
   ngOnInit(): void {
+    this.commonServiceService.updateName('maahi');
   }
 
 }
