@@ -12,7 +12,7 @@ export class LikeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.likesCount);
+    // console.log(this.likesCount);
   }
 
   handleClick() {

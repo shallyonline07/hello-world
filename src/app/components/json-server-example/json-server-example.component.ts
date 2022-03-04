@@ -18,7 +18,7 @@ export class JsonServerExampleComponent implements OnInit {
 
   ngOnInit(): void {
     this.commonService.getStudents().subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.data = response;
     })
   }

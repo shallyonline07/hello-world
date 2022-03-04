@@ -9,12 +9,12 @@ export class HeaderComponent implements OnInit {
   public headerTitle: string;
 
   constructor() {
-    console.log('in constructor');
+    // console.log('in constructor');
     
    }
 
   ngOnInit(): void {
-    console.log('hello');
+    // console.log('hello');
     this.headerTitle = 'Welcome to my page';
   }
 

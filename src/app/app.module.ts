@@ -24,6 +24,11 @@ import { ParentComponent } from './components/view-child/parent/parent.component
 import { ChildComponent } from './components/view-child/child/child.component';
 import { Child1Component } from './components/view-child/child1/child1.component';
 import { Parent1Component } from './components/view-child/parent1/parent1.component';
+import { Parent2Component } from './components/ng-content-example/parent2/parent2.component';
+import { Child2Component } from './components/ng-content-example/child2/child2.component';
+import { GrandChild2Component } from './components/ng-content-example/grand-child2/grand-child2.component';
+import { Parent3Component } from './components/life-cycle-hooks/parent3/parent3.component';
+import { Child3Component } from './components/life-cycle-hooks/child3/child3.component';
 
 
 @NgModule({
@@ -48,6 +53,11 @@ import { Parent1Component } from './components/view-child/parent1/parent1.compon
     ChildComponent,
     Child1Component,
     Parent1Component,
+    Parent2Component,
+    Child2Component,
+    GrandChild2Component,
+    Parent3Component,
+    Child3Component,
   
   ],
   imports: [

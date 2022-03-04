@@ -29,13 +29,13 @@ export class DirectivesExampleComponent implements OnInit {
     let name = 'mishti';
     switch (name) {
       case 'maahi':
-        console.log('matched ' + name);
+        // console.log('matched ' + name);
         break;
       case 'mishti':
-        console.log('matched ' + name);
+        // console.log('matched ' + name);
         break;  
       default:
-        console.log('no match found');
+        // console.log('no match found');
         break;
     }
 

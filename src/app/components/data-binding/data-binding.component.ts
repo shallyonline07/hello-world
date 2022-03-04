@@ -23,7 +23,7 @@ export class DataBindingComponent implements OnInit {
   }
 
   logSomeValue() {
-    console.log('event binding done');
+    // console.log('event binding done');
     
   }
 
