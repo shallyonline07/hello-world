@@ -1,4 +1,23 @@
 <h5 class="mt-4">==== Component Life cycle hooks ======</h5>
 
+<pre>
+    - constructor: It is not life cycle hook, but it is executed first.
+        We should not write any code in this method. Rather we should use ngOnInit() method.
+    Below life cycle hooks are executed in mentioned sequence:
+    - ngOnChanges(): It is only called when there is an @Input property in the component
+    - ngOnInit(); It is the most used life cycle hook as we starts code from this method.
+    - ngDoCheck()
+    - ngAfterContentInit()
+    - ngAfterContentChecked()
+    - ngAfterViewInit(): It is mostly used when we have @ViewChild.
+        In @ViewChild we can inject a component or DOM element through template reference variable (#)
+        and the value is only available in ngAfterViewInit() not before that.
+    - ngAfterViewChecked()
+    - ngOnDestroy(): It is mostly used to unsubscribe any subscriptions.
+</pre>
+
+<a href="https://angular.io/guide/lifecycle-hooks#lifecycle-hooks" target="_blank">Learn More</a>
+<br><br>
+
 <button (click)="updateMessage()">Update message to child</button>
-<app-child3 [message]="info"></app-child3>
+<app-child3 [message]="info" [message1]="info1"></app-child3>

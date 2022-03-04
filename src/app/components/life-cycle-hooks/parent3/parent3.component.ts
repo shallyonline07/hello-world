@@ -6,19 +6,20 @@ import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnCha
   styleUrls: ['./parent3.component.scss']
 })
 export class Parent3Component implements 
-OnChanges,
-OnInit
-// DoCheck,
-// AfterContentInit,
-// AfterContentChecked,
-// AfterViewInit,
-// AfterViewChecked,
-// OnDestroy 
+                                  OnChanges,
+                                  OnInit,
+                                  DoCheck,
+                                  AfterContentInit,
+                                  AfterContentChecked,
+                                  AfterViewInit,
+                                  AfterViewChecked,
+                                  OnDestroy 
 {
   info: string = 'AAA';
+  info1: string = 'BBB';
 
   constructor() {
-    // console.log('Parent: Constructor');
+    console.log('Parent: Constructor');
   }
 
   ngOnChanges(): void {
@@ -29,33 +30,34 @@ OnInit
     console.log('Parent: OnInit');
   }
 
-  // ngDoCheck(): void {
-  //   console.log('Parent: DoCheck');
-  // }
+  ngDoCheck(): void {
+    console.log('Parent: DoCheck');
+  }
 
-  // ngAfterContentInit(): void {
-  //   console.log('Parent: AfterContentInit');
-  // }
+  ngAfterContentInit(): void {
+    console.log('Parent: AfterContentInit');
+  }
 
-  // ngAfterContentChecked(): void {
-  //   console.log('Parent: AfterContentChecked');
-  // }
+  ngAfterContentChecked(): void {
+    console.log('Parent: AfterContentChecked');
+  }
 
-  // ngAfterViewInit(): void {
-  //   console.log('Parent: AfterViewInit');
-  // }
+  ngAfterViewInit(): void {
+    console.log('Parent: AfterViewInit');
+  }
 
-  // ngAfterViewChecked(): void {
-  //   console.log('Parent: AfterViewChecked');
-  // }
+  ngAfterViewChecked(): void {
+    console.log('Parent: AfterViewChecked');
+  }
   
-  // ngOnDestroy(): void {
-  //   console.log('Parent: OnDestroy');
-  // }
+  ngOnDestroy(): void {
+    console.log('Parent: OnDestroy');
+  }
 
 
   updateMessage() {
     this.info = this.info + '1';
+    this.info1 = this.info1 + '1';
   }
 
 }

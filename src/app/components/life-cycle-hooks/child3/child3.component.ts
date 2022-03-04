@@ -6,53 +6,54 @@ import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnCha
   styleUrls: ['./child3.component.scss']
 })
 export class Child3Component implements
-  OnChanges,
-  OnInit
-  // DoCheck,
-  // AfterContentInit,
-  // AfterContentChecked,
-  // AfterViewInit,
-  // AfterViewChecked,
-  // OnDestroy 
+                                  OnChanges,
+                                  OnInit,
+                                  DoCheck,
+                                  AfterContentInit,
+                                  AfterContentChecked,
+                                  AfterViewInit,
+                                  AfterViewChecked,
+                                  OnDestroy 
   {
     
   @Input('message') message: string;
+  @Input('message1') message1: string;
 
   constructor() {
-    // console.log('Child: Constructor');
+    console.log('Child: Constructor');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('Child: OnChanges');
-    console.log(changes.message);
-    
+    // console.log(changes.message);
+    // console.log(changes.message1);
   }
 
   ngOnInit(): void {
     console.log('Child: OnInit');
   }
 
-  // ngDoCheck(): void {
-  //   console.log('Child: DoCheck');
-  // }
+  ngDoCheck(): void {
+    console.log('Child: DoCheck');
+  }
 
-  // ngAfterContentInit(): void {
-  //   console.log('Child: AfterContentInit');
-  // }
+  ngAfterContentInit(): void {
+    console.log('Child: AfterContentInit');
+  }
 
-  // ngAfterContentChecked(): void {
-  //   console.log('Child: AfterContentChecked');
-  // }
+  ngAfterContentChecked(): void {
+    console.log('Child: AfterContentChecked');
+  }
 
-  // ngAfterViewInit(): void {
-  //   console.log('Child: AfterViewInit');
-  // }
+  ngAfterViewInit(): void {
+    console.log('Child: AfterViewInit');
+  }
 
-  // ngAfterViewChecked(): void {
-  //   console.log('Child: AfterViewChecked');
-  // }
+  ngAfterViewChecked(): void {
+    console.log('Child: AfterViewChecked');
+  }
   
-  // ngOnDestroy(): void {
-  //   console.log('Child: OnDestroy');
-  // }
+  ngOnDestroy(): void {
+    console.log('Child: OnDestroy');
+  }
 }
