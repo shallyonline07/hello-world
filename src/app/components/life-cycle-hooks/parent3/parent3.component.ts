@@ -57,7 +57,7 @@ export class Parent3Component implements
 
   updateMessage() {
     this.info = this.info + '1';
-    this.info1 = this.info1 + '1';
+    
   }
 
 }

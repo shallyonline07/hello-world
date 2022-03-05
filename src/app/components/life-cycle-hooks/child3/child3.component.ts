@@ -25,7 +25,7 @@ export class Child3Component implements
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('Child: OnChanges');
-    // console.log(changes.message);
+    console.log(changes.message);
     // console.log(changes.message1);
   }
 
