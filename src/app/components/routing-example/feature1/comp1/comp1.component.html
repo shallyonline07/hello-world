@@ -1,5 +1,4 @@
 <p>comp1 works!</p>
-
 <h5>===== Routing =======</h5>
 <pre>
     <b>Angular router:</b> It helps developers to navigate between multiple views in a Single Page Application (SPA)
@@ -14,9 +13,25 @@
         - If the matching strategy is 'full', then router tries to match the URL with full path.
         - If the matching strategy is 'prefix', then router tries to match the URL that starts with the mentioned path.   
 
-    Q: <b>router-outlet:</b> It is a directive from router library. It inserts the component that matches the route with browser URL.
+    Q: <b>router-outlet:</b> 
+        - It is a directive from router library. It inserts the component that matches the route with browser URL.
+        - It can be used multiple times in the application. For ex: for top level routes and child level
+            routes (lazy loaded feature modules)
     
-    Q: <b>Diff between forRoot() and forChild():</b>
+    Q: <b>Diff between RouterModule.forRoot() and RouterModule.forChild():</b>
+        - forRoot(): 
+            1. It is used to configure top level (root level) routes in an angular application.
+            2. It is used only once in the application.
+        - forChild(): 
+            1. It is used to configure any other routes in an angular application. For ex: We can configure routes
+            for lazy loaded feature modules.
+            2. It can be used multiple times in the application. For ex: Every feature module can have their own routes.
+
+    Q: <b>Nesting routes:</b>
+        - These routes are relative to a component rather than root component. These are called child routes.
+        
+
+
 
     Q: Lazy loading of feature modules
     Q: Any other routing questions.

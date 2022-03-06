@@ -9,13 +9,9 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   public headerTitle: string;
 
-  constructor(private router: Router) {
-    // console.log('in constructor');
-    
-   }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    // console.log('hello');
     this.headerTitle = 'Welcome to my page';
   }
 
