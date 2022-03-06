@@ -1,10 +1,15 @@
-.align {
+.align-header {
     text-align: center;
-   line-height: 100px;
+    line-height: 60px;
     width: 100vw;
-    height: 100px;
+    height: 60px;
     background-color: white;
+}
 
+.align-tabs {
+    background-color: white;
+    position: sticky;
+    top: 60px;
 }
 
 // .size {

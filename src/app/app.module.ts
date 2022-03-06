@@ -29,6 +29,10 @@ import { Child2Component } from './components/ng-content-example/child2/child2.c
 import { GrandChild2Component } from './components/ng-content-example/grand-child2/grand-child2.component';
 import { Parent3Component } from './components/life-cycle-hooks/parent3/parent3.component';
 import { Child3Component } from './components/life-cycle-hooks/child3/child3.component';
+import { AppRoutingModule } from './app-routing.module';
+import { Comp1Component } from './components/routing-example/feature1/comp1/comp1.component';
+import { Comp2Component } from './components/routing-example/feature2/comp2/comp2.component';
+import { NotFoundComponent } from './components/routing-example/not-found/not-found.component';
 
 
 @NgModule({
@@ -58,13 +62,16 @@ import { Child3Component } from './components/life-cycle-hooks/child3/child3.com
     GrandChild2Component,
     Parent3Component,
     Child3Component,
-  
+    Comp1Component,
+    Comp2Component,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

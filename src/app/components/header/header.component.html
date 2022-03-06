@@ -1,1 +1,15 @@
-<div class= "align sticky-top font-weight-bold border border-secondary">{{ headerTitle }}</div>
+<div class= "align-header sticky-top font-weight-bold border border-secondary">{{ headerTitle }}</div>
+
+<div class="align-tabs container">
+     <ul class="nav nav-tabs">
+         <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/feature1">Feature1</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" (click)="loadFeature2()">Feature2</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" (click)="loadFeature3()">Feature3</a>
+         </li>
+     </ul>
+ </div>

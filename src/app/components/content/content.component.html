@@ -1,5 +1,8 @@
-<div class="container my-5">
-    <h3> ===== ngIf =====</h3>
+<div class="container my-4">
+
+    <router-outlet></router-outlet>
+
+    <h3 class="mt-4"> ===== ngIf =====</h3>
     <button (click)="toggleStatus()">Toggle Content</button>
     
     <div *ngIf ="showStatus; else displayMessage" class="container mt-4 content border border-secondary">
