@@ -43,5 +43,13 @@
             then this problem even grows bigger. Therefore, lazy loading allows angular to load components/modules as and when
             they're needed.
         - To implement this we can use loadChildren() in app-routing module.
+
+    Q: <b>What is a route guard?</b>
+        - These are used to prevent users from navigating to parts of an application without authorization.
+        - The route guard implements "CanActivate" interface and the describe its method "canActivate()". And this method 
+            generally contains a logic to check if the user is authorized or not. If user is authorized then it return true and 
+            the navigation continues, and if the user is not authorized then it returns false and navigation is cancelled and we 
+            can redirect to an error route.
+            
 </pre>
 

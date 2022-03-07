@@ -33,6 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Comp1Component } from './components/routing-example/feature1/comp1/comp1.component';
 import { Comp2Component } from './components/routing-example/feature2/comp2/comp2.component';
 import { NotFoundComponent } from './components/routing-example/not-found/not-found.component';
+import { ErrorComponent } from './components/routing-example/error/error.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { NotFoundComponent } from './components/routing-example/not-found/not-fo
     Comp1Component,
     Comp2Component,
     NotFoundComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
