@@ -19,7 +19,9 @@ const routes: Routes = [
     },
     {
         path: '**',
-        component: NotFoundComponent
+        // component: NotFoundComponent
+        redirectTo: 'feature1',
+        pathMatch: 'full'
     }
 ];
 

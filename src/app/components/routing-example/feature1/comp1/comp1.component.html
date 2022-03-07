@@ -4,20 +4,20 @@
     <b>What is Angular router?</b>
         It helps developers to navigate between multiple views in a Single Page Application (SPA)
     
-    <b>Why it is important to keep a proper rrder of routes ?</b>
+    <b>Why it is important to keep a proper order of routes ?</b>
         The order of routes is very important because Angular Router uses a first-match wins strategy.
         Therefore, more specific routes should be placed above less specific routes.
         For ex: Wildcard routes (**) should be placed at the end because it matches every URL. 
     
     Q: <b>What is routes matching strategy?</b> 
-        It is about matching the URL with mentioned path. The router checks URL elements
-        from left to see if the URL matches a given path and it stops when there is a match.
+        It is about matching the browser URL with mentioned path in routes. The router checks URL elements
+        from left to right to see if the URL matches a given path and it stops when there is a match.
         There are two value of 'pathMatch' property namely 'full' and 'prefix'.
         - If the matching strategy is 'full', then router tries to match the URL with full path.
         - If the matching strategy is 'prefix', then router tries to match the URL that starts with the mentioned path.   
 
     Q: <b>What is router-outlet ?</b> 
-        - It is a directive from router library. It inserts the component that matches the route with browser URL.
+        - It is a directive from router library. It inserts the component that matches the route path with browser URL.
         - It can be used multiple times in the application. For ex: for top level routes and child level
             routes (lazy loaded feature modules)
     
@@ -32,7 +32,6 @@
 
     Q: <b>What are nesting routes?</b>
         - Sometimes, we need sub menus of a parent menu. In these situations, we need to configure Children routes.
-        - These routes are relative to a component rather than root component.
         - For ex: Let's say there is main menu "Profile Settings" and there are sub-menus like change password, change contact etc.
             So, in this example we can configure Children routes under "profile-settings" route.
         - We can use "router-outlet" to render components corresponding to Children routes.
