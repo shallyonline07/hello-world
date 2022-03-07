@@ -17,13 +17,13 @@ export class ColorComponent implements OnInit {
     this.router.navigate(['/feature3/color/red']);
   }
 
-  loadGreen() {
-    this.router.navigate(['/feature3/color/green']);
+  loadGreen(value: string) {
+    this.router.navigate(['/feature3/color/green'], { queryParams: { type: value} });
   }
   
-  loadBlue(type: string) {
-    // this.router.navigate([`/feature3/color/blue/${type}`]);
-    this.router.navigate(['/feature3/color/blue/' + type]);
+  loadBlue(value: string) {
+    // this.router.navigate([`/feature3/color/blue/${value}`]);
+    this.router.navigate(['/feature3/color/blue/' + value]);
   }
 
 }

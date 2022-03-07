@@ -20,13 +20,13 @@ const routes: Routes = [
                 component: RedComponent
             },
             {
-                path: 'green',
+                path: 'green',      // Route with QueryString
                 component: GreenComponent
             },
             {
-                path: 'blue/:type',
+                path: 'blue/:type',  // Route with Params
                 component: BlueComponent
-            }
+            },
         ]
     },
 ]

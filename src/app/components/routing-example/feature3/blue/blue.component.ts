@@ -13,7 +13,7 @@ export class BlueComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(value => {
       this.type = value['type'];
-    })
+    });
   }
 
 }
