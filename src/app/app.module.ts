@@ -34,6 +34,7 @@ import { Comp1Component } from './components/routing-example/feature1/comp1/comp
 import { Comp2Component } from './components/routing-example/feature2/comp2/comp2.component';
 import { NotFoundComponent } from './components/routing-example/not-found/not-found.component';
 import { ErrorComponent } from './components/routing-example/error/error.component';
+import { ObservableTypesComponent } from './components/observable-types/observable-types.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { ErrorComponent } from './components/routing-example/error/error.compone
     Comp2Component,
     NotFoundComponent,
     ErrorComponent,
+    ObservableTypesComponent,
   ],
   imports: [
     BrowserModule,

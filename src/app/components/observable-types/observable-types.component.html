@@ -1,0 +1,27 @@
+<h5 class="mt-4"> === Hot/Cold Observables ====</h5>
+<pre>
+  <b>Cold Observable</b>:
+    - It emits values only when you subscribe for it.  
+    - It emits unique value (unicasting)
+    - Ex: http.get(). There will be a network call everytime we subscribe for it.
+      Like in below example, we are subscribing it throught async pipe twice. So 2 network calls.
+      We can transform this cold observable to hot by using shareRepay() rxjs operator. Now, even though
+      we are subscribing twice, but there is only one network call.
+
+  <b>Hot Observable</b>:
+    - It emits values regardless of whether you subscribe it or not.
+    - It broadcast same value to all subscribers (i.e. multicasting)
+    - Ex: all subjects like Subject, BehaviorSubject, ShareReplay 
+</pre>
+
+
+
+<div>
+  Total Posts: {{ (posts$ | async).length }}
+</div>
+<div class="size mt-2 border border-dark">
+  <ul>
+    <li *ngFor="let post of posts$ | async">{{ post.title }}</li>
+  </ul>
+</div>
+
