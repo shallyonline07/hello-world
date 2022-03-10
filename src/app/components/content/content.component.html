@@ -65,7 +65,6 @@
                 <td>{{ studentData[1].age }}</td>
                 <td>{{ studentData[1].address }}</td>
             </tr>
-            <!-- OR -->
             <tr *ngFor="let data of studentData; let i=index;">
                 <td>{{ i+1 }}</td>
                 <td>{{ data.name }}</td>
@@ -99,6 +98,10 @@
     <app-parent3></app-parent3>
 
     <app-observable-types></app-observable-types>
+
+
+    <app-create-employee></app-create-employee>
+
 </div>
 
 

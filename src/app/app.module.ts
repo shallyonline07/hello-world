@@ -35,6 +35,7 @@ import { Comp2Component } from './components/routing-example/feature2/comp2/comp
 import { NotFoundComponent } from './components/routing-example/not-found/not-found.component';
 import { ErrorComponent } from './components/routing-example/error/error.component';
 import { ObservableTypesComponent } from './components/observable-types/observable-types.component';
+import { CreateEmployeeComponent } from './components/forms/template-driven/create-employee/create-employee.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { ObservableTypesComponent } from './components/observable-types/observab
     NotFoundComponent,
     ErrorComponent,
     ObservableTypesComponent,
+    CreateEmployeeComponent,
   ],
   imports: [
     BrowserModule,
