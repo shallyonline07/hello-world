@@ -29,10 +29,10 @@ Today's Date: {{ currentDate | date: 'mediumDate' }}
 
 <h6 class="mt-5">==== Angular custom Pipes ====</h6>
 Custom pipe without parameters:
-{{ name | appendLastname }}
+<!-- {{ name | appendLastname }} -->
 <br>
-<!-- Custom pipe with parameters:
-{{ name | appendLastname: 'Ms' }} -->
+<!-- Custom pipe with parameters: -->
+{{ name | appendLastname: 'prefix' : 'suffix' }}
 
 
 

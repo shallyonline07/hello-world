@@ -14,7 +14,7 @@ export class CommonServiceService {
   constructor(private http: HttpClient) { }
 
   getStudents(): Observable<any> {
-    return this.http.get(this.url);
+    return this.http.get<any>(this.url);
   }
 
 

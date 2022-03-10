@@ -13,7 +13,10 @@ export class AppendLastnamePipe implements PipeTransform {
     // } else {
     //   val = value + ' setiya';
     // }
-    const val = value + ' setiya';
+
+
+    // const val = value + ' setiya';
+    const val = args[0] + ' ' + value + ' setiya ' + args[1];
     return val;
   }
 
