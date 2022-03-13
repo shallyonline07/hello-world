@@ -110,7 +110,6 @@ export class RegisterEmployeeComponent implements OnInit {
   }
 }
 
-
 function domainCustomValidation(control: AbstractControl): { [key: string]: any } | null {
   const email = control.value;
   const emailDomain = email.substring(email.lastIndexOf('@') + 1);
