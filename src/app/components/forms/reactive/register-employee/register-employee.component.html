@@ -1,0 +1,91 @@
+
+<pre class="mt-5">
+  <b>B: Reactive Forms:</b>
+  - Import ReactiveFormsModule in app.module.ts file
+  - <b>FormArray:</b>
+    . It can contain an array of FormControls, FormGroups, Nested FormArrays
+  - <b>setValue():</b>
+     . It can be used to set value to an individual form control.
+     . It can be used to set value to the whole form group. Usually the value comes from API.
+        While setting value of the entire form group, it is a must to supply value of all form controls.
+  
+
+
+
+</pre>
+<form [formGroup]="employeeForm" (ngSubmit)="saveEmployee(employeeForm)" class="size mt-1">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Register Employee (reactive form)</h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="fn" class="col-sm-3">Full Name</label>
+        <input id="fn" type="text" class="form-control" formControlName="fullName"
+          [ngClass]="{
+            'is-invalid': employeeForm.get('fullName').touched && employeeForm.get('fullName').errors,
+            'is-valid': employeeForm.get('fullName').valid
+          }"
+        >
+        <span class="invalid-feedback" *ngIf="employeeForm.get('fullName').touched && employeeForm.get('fullName').errors">
+          <span *ngIf="employeeForm.get('fullName').errors.required">Full name is required.</span>
+          <span *ngIf="employeeForm.get('fullName').errors.minlength || employeeForm.get('fullName').errors.maxlength">
+            Full name length should be between 2 and 10 characters.
+          </span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Contact Preferences</label>
+        <div class="col-md-8">
+          <input type="radio" value="email" formControlName="contactPref" (click)="onContactPrefChange('email')">Email
+          <input type="radio" value="phone" formControlName="contactPref" (click)="onContactPrefChange('phone')">Phone
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="em"> Email</label>
+        <input id="em" type="text" class="form-control" formControlName="email"
+          [ngClass]="{
+            'is-invalid': employeeForm.get('email').touched && employeeForm.get('email').errors,
+            'is-valid': employeeForm.get('email').valid
+          }"
+        >
+        Error Object: {{ employeeForm.get('email').errors | json }}
+        <span class="invalid-feedback" *ngIf="employeeForm.get('email').touched && employeeForm.get('email').errors">
+          <span *ngIf="employeeForm.get('email').errors.required">Email is required. </span>
+          <span *ngIf="employeeForm.get('email').errors.email">Incorrect email format. </span>
+          <span *ngIf="employeeForm.get('email').errors.domain">Domain must be gmail.com</span>
+        </span>
+      </div>
+
+      <!-- FormArray -->
+      <div class="card">
+        <button (click)="addNewSkill()" class="btn btn-primary">Add Skill</button>
+
+        <div formArrayName="skills" *ngFor="let skill of formSkills.controls; let i=index;">
+          <div [formGroupName]="i" class="my-3 p-4 border border-primary">
+            <div class="form-group">
+              <label>Skill Name:</label>
+              <input type="text" formControlName="skillName" class="form-control" placeholder="Skill name">
+            </div>
+            <div class="form-group">
+              <label>Experience:</label>
+              <input type="text" formControlName="experience" class="form-control" placeholder="Experience in years">
+            </div>
+            <div class="form-group">
+              <label>Proficiency: &nbsp;</label>
+              <input type="radio" formControlName="proficiency" value="beginner">Beginner &nbsp;
+              <input type="radio" formControlName="proficiency" value="intermediate">Intermediate &nbsp;
+              <input type="radio" formControlName="proficiency" value="expert">Expert
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-footer flex-container">
+      <button type="button" class="btn btn-primary mr-3" (click)="loadData()">Load Data</button>
+      <button type="button" class="btn btn-primary mr-3" (click)="updateValues()">Update values</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>

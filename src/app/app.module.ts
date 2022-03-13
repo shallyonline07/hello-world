@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './components/input-output/post/post.component';
 import { LikeComponent } from './components/input-output/like/like.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { AppendLastnamePipe } from './custom-pipes/append-lastname.pipe';
 import { DirectivesExampleComponent } from './components/directives-example/directives-example.component';
@@ -36,6 +36,7 @@ import { NotFoundComponent } from './components/routing-example/not-found/not-fo
 import { ErrorComponent } from './components/routing-example/error/error.component';
 import { ObservableTypesComponent } from './components/observable-types/observable-types.component';
 import { CreateEmployeeComponent } from './components/forms/template-driven/create-employee/create-employee.component';
+import { RegisterEmployeeComponent } from './components/forms/reactive/register-employee/register-employee.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { CreateEmployeeComponent } from './components/forms/template-driven/crea
     ErrorComponent,
     ObservableTypesComponent,
     CreateEmployeeComponent,
+    RegisterEmployeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +80,7 @@ import { CreateEmployeeComponent } from './components/forms/template-driven/crea
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
