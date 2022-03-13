@@ -98,7 +98,18 @@ export class RegisterEmployeeComponent implements OnInit {
 
   }
 
+
+  concatValues(a: string): string {
+    const b = a + ' hi';
+    return b;
+  }
+
+  concatValues1(a: string): { [key: string]: string } {
+    const b = a + ' hi';
+    return { name: b };
+  }
 }
+
 
 function domainCustomValidation(control: AbstractControl): { [key: string]: any } | null {
   const email = control.value;
