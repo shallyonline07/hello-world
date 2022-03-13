@@ -53,6 +53,11 @@ export class RegisterEmployeeComponent implements OnInit {
   }
 
   loadData() {
+    // ==== setValue() for individual form control ====
+    this.employeeForm.controls.contactPref.setValue('phone');
+    this.employeeForm.get('fullName').setValue('new value');
+
+    // ==== setValue() for Whole form group ====
     const obj = {
       fullName: 'Ankush Setiya',
       contactPref: 'phone',

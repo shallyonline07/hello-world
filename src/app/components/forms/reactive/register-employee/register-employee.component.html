@@ -2,18 +2,20 @@
 <pre class="mt-5">
   <b>B: Reactive Forms:</b>
   - Import ReactiveFormsModule in app.module.ts file
+  
   - <b>FormArray:</b>
     . It can contain an array of FormControls, FormGroups, Nested FormArrays
+  
   - <b>setValue():</b>
-     . It can be used to set value to an individual form control.
-     . It can be used to set value to the whole form group. Usually the value comes from API.
+     . It can be used to set value of an individual form control.
+     . It can be used to set value of the whole form group. Usually the value comes from API.
         While setting value of the entire form group, it is a must to supply value of all form controls.
   
-
-
-
+  - <b>patchValue():</b>
+    . it is used to update the value of an individual form control.
 </pre>
-<form [formGroup]="employeeForm" (ngSubmit)="saveEmployee(employeeForm)" class="size mt-1">
+
+<form [formGroup]="employeeForm" (ngSubmit)="saveEmployee(employeeForm)" class="size mt-3">
   <div class="card">
     <div class="card-header">
       <h3 class="card-title">Register Employee (reactive form)</h3>
