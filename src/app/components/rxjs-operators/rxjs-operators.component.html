@@ -1,0 +1,32 @@
+<h5 class="mt-4">======= RxJs Operators and Async pipe ======</h5>
+<pre>
+  <b>pipe():</b>
+  <b>of():</b>
+  <b>map():</b>
+  <b>tap():</b>
+  <b>filter():</b>
+  <b>take():</b>
+  <b>switchMap():</b>
+  <b>combineLatest():</b>
+  <b>catchError():</b>
+  <b>finalize():</b>
+  <b>mergeMap() / flatMap():</b>
+    - It combines two observables and execute in parallel and finish the operation once all observables are completed
+    - Response time is very less
+    - If one request (observable) fails then it does not hamper the overall response
+    - It is NOT guaranteed that order will be maintained in the response
+  <b>forkJoin():</b>
+    - It combines two observables and execute in parallel and finish the operation once all observables are completed
+    - If one request fails then the whole response is failed.
+    - It is guaranteed that order will be maintained in the response
+  <b>concatMap():</b>
+    - It combines two observables and execute one by one and finish the operation once all observables are completed
+    - Response time is high comparative to mergeMap() and forkJoin() as it executes observables one by one.
+  <b>delay():</b>
+  <b>debounce():</b>
+</pre>
+
+
+
+
+

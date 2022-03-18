@@ -37,6 +37,7 @@ import { ErrorComponent } from './components/routing-example/error/error.compone
 import { ObservableTypesComponent } from './components/observable-types/observable-types.component';
 import { CreateEmployeeComponent } from './components/forms/template-driven/create-employee/create-employee.component';
 import { RegisterEmployeeComponent } from './components/forms/reactive/register-employee/register-employee.component';
+import { RxjsOperatorsComponent } from './components/rxjs-operators/rxjs-operators.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { RegisterEmployeeComponent } from './components/forms/reactive/register-
     ObservableTypesComponent,
     CreateEmployeeComponent,
     RegisterEmployeeComponent,
+    RxjsOperatorsComponent,
   ],
   imports: [
     BrowserModule,
