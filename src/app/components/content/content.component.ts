@@ -36,9 +36,6 @@ export class ContentComponent implements OnInit {
 
   toggleStatus() {
     this.showStatus = !this.showStatus;
-    // console.log("uyyuy");
-    
-    
   }
 
 }

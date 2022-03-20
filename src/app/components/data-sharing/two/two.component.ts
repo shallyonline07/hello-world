@@ -10,7 +10,7 @@ import { CommonServiceService } from 'src/app/services/common-service.service';
 export class TwoComponent implements OnInit, OnDestroy {
   // studentName$: Observable<string>;
   studentName: string;
-  sub = new Subscription();
+  sub: Subscription = new Subscription();
 
 
   constructor(private commonServiceService: CommonServiceService) { }
