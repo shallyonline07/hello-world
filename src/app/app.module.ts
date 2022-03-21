@@ -40,6 +40,7 @@ import { RegisterEmployeeComponent } from './components/forms/reactive/register-
 import { RxjsOperatorsComponent } from './components/rxjs-operators/rxjs-operators.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { RxjsOperatorsComponent } from './components/rxjs-operators/rxjs-operato
     CreateEmployeeComponent,
     RegisterEmployeeComponent,
     RxjsOperatorsComponent,
+   
   ],
   imports: [
     BrowserModule,

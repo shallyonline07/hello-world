@@ -1,25 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContainerTemplateComponent } from './container-template.component';
 
-describe('ContainerTemplateComponent', () => {
+describe('ContainerTemplateComp', () => {
   let component: ContainerTemplateComponent;
-  let fixture: ComponentFixture<ContainerTemplateComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ContainerTemplateComponent ]
-    })
-    .compileComponents();
-  }));
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContainerTemplateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new ContainerTemplateComponent();
   });
-
-  it('should create', () => {
+  it('should create component successfully', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('#computeSum', () => {
+    it('should return the computed sum', () => {
+      const sum = component.computeSum(100, 200);
+      expect(sum).toEqual(300)
+    })
+  });
+
+  describe('#ngOnInit', () => {
+    it('should call computeSum() function twice', () => {
+      jest.spyOn(component, 'computeSum').mockReturnValue(99);
+      component.ngOnInit();
+      expect(component.computeSum).toHaveBeenCalledTimes(2);
+    })
+  });
+
 });

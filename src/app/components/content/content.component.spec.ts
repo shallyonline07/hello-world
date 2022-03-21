@@ -33,6 +33,7 @@ describe('ContentComponent', () => {
     });
 
     it('should set studentData', () => {
+      component.studentData = undefined;
       component.ngOnInit();
       expect(component.studentData).toEqual([
         {
@@ -46,6 +47,7 @@ describe('ContentComponent', () => {
           address: 'Scarborough'
         },
       ]);
+      // expect(component.studentData).toBeDefined();
     });
   });
 
