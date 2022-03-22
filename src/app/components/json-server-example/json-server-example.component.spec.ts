@@ -1,25 +1,38 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { JsonServerExampleComponent } from './json-server-example.component';
+import { of } from 'rxjs';
+import { JsonServerExampleComponent, Student } from './json-server-example.component';
+import { fakeAsync, flush } from '@angular/core/testing';
 
 describe('JsonServerExampleComponent', () => {
   let component: JsonServerExampleComponent;
-  let fixture: ComponentFixture<JsonServerExampleComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ JsonServerExampleComponent ]
-    })
-    .compileComponents();
-  }));
+  const mockStudentData: Student[] = [
+    {
+      "name": "Alex",
+      "age": 6,
+      "address": "Bowmanville"
+    },
+    {
+      "name": "Julia",
+      "age": 3,
+      "address": "Scarborough"
+    }
+  ];
+  const mockCommonServiceService: any = {
+    getStudents: jest.fn().mockReturnValue(of(mockStudentData))
+  }
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JsonServerExampleComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    component = new JsonServerExampleComponent(mockCommonServiceService);
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('#ngOnInit', () => {
+    it('should call getStudents() and should set data', fakeAsync(() => {
+      component.ngOnInit();
+      flush();
+      expect(component.data).toEqual(mockStudentData);
+    }));
+  })
 });

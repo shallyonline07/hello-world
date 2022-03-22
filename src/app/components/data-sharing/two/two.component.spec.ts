@@ -1,25 +1,36 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TwoComponent } from './two.component';
+import { of } from 'rxjs';
+import { fakeAsync, flush } from '@angular/core/testing';
 
 describe('TwoComponent', () => {
   let component: TwoComponent;
-  let fixture: ComponentFixture<TwoComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TwoComponent ]
-    })
-    .compileComponents();
-  }));
+  
+  const mockCommonServiceService: any = {
+    name$: of('test name')
+  }
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TwoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    component = new TwoComponent(mockCommonServiceService);
+  })
 
-  it('should create', () => {
+  it('should create component successfully', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('#ngOnDestroy', () => {
+    it('should call unsubscribe', () => {
+      jest.spyOn(component.sub, 'unsubscribe').mockImplementation(() => {});
+      component.ngOnDestroy();
+      expect(component.sub.unsubscribe).toHaveBeenCalledTimes(1);
+    })
+  })
+
+  describe('#ngOnInit', () => {
+    it('should set studentName', fakeAsync(() => {
+      component.ngOnInit();
+      flush();
+      expect(component.studentName).toEqual('test name');
+    }))
+  });
+  
 });

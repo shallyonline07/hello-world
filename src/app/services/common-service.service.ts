@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Student } from '../components/json-server-example/json-server-example.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class CommonServiceService {
  
   constructor(private http: HttpClient) { }
 
-  getStudents(): Observable<any> {
-    return this.http.get<any>(this.url);
+  getStudents(): Observable<Student[]> {
+    return this.http.get<Student[]>(this.url);
   }
 
   getPosts(): Observable<string[]> {
