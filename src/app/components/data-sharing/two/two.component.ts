@@ -10,14 +10,14 @@ import { CommonServiceService } from 'src/app/services/common-service.service';
 export class TwoComponent implements OnInit, OnDestroy {
   // studentName$: Observable<string>;
   studentName: string;
-  sub: Subscription = new Subscription();
+  subscription: Subscription = new Subscription();
 
 
   constructor(private commonServiceService: CommonServiceService) { }
 
   ngOnInit(): void {
     // this.studentName$ = this.commonServiceService.name$;
-    this.sub.add(
+    this.subscription.add(
       this.commonServiceService.name$.subscribe(response => {
         this.studentName = response;
       })
@@ -26,7 +26,7 @@ export class TwoComponent implements OnInit, OnDestroy {
   }
   
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 

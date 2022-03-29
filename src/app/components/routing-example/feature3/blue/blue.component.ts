@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,14 +7,20 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './blue.component.html',
   styleUrls: ['./blue.component.scss']
 })
-export class BlueComponent implements OnInit {
+export class BlueComponent implements OnInit, OnDestroy {
   type: string;
+  subscription: Subscription = new Subscription();
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(value => {
-      this.type = value['type'];
-    });
+    this.subscription.add(
+      this.activatedRoute.params.subscribe(value => {
+        this.type = value['type'];
+    }));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

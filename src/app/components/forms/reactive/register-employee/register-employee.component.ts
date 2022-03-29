@@ -13,6 +13,7 @@ export class RegisterEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.ObserveFormChanges();
   }
 
   get formSkills() {
@@ -25,6 +26,21 @@ export class RegisterEmployeeComponent implements OnInit {
       contactPref: ['email'],
       email: ['', [Validators.required, Validators.email, domainCustomValidation]],
       skills: this.formBuilder.array([this.addSkills()])
+    });
+  }
+
+  ObserveFormChanges() {
+    // Example of detecting a value change in a form control (fullName)
+    this.employeeForm.get('fullName').valueChanges.subscribe(newValue => {
+      console.log(newValue);
+    });
+
+    // Example of detecting a value change at form level (i.e. any of the form controls)
+    this.employeeForm.valueChanges.subscribe(formObj => {
+      console.log(formObj.fullName);
+      console.log(formObj.contactPref);
+      console.log(formObj.email);
+      console.log(formObj.skills);
     });
   }
 
