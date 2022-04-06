@@ -22,7 +22,8 @@ export class RegisterEmployeeComponent implements OnInit {
 
   createForm() {
     this.employeeForm = this.formBuilder.group({
-      fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
+      // fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
+      fullName: ['', [Validators.minLength(2), Validators.maxLength(10)]],
       contactPref: ['email'],
       email: ['', [Validators.required, Validators.email, domainCustomValidation]],
       skills: this.formBuilder.array([this.addSkills()])
@@ -123,6 +124,14 @@ export class RegisterEmployeeComponent implements OnInit {
   concatValues1(a: string): { [key: string]: string } {
     const b = a + ' hi';
     return { name: b };
+  }
+
+  addValidator() {
+    this.employeeForm.get('fullName').setValidators([Validators.required]);
+  }
+
+  clearValidator() {
+    this.employeeForm.get('fullName').clearValidators();
   }
 }
 

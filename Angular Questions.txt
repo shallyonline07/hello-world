@@ -163,9 +163,118 @@ Q: What is OnChanges interface?
 	- inside this method.....changes.prop contains the old and the new value
 	- ngOnChanges(): This will only and only get called if the value of any of the input properties change.
 
+Q: Difference between HTML and DOM?
+	- "DOM (Document Object Model): It’s a model of objects that represents structure of a document. Its essentially a tree of objects in memory.
+	- HTML: it’s a markup language that represents DOM.
+
+	Note: When browser parses an HTML document it creates a tree of objects in memory that is known as DOM."
+
+INDIAAA
+
+Q: What are different types of forms in Angular?
+A: Two types of forms in Angular2
+	1) Template driven forms: 
+	    . To create simple forms
+	    . most of the work is done in HTML 
+	    . Some standard HTML5 validations like. Not full control over form validation
+	        required
+	        maxlength
+	        min
+	        max
+	        pattern
+	2) Reactive Forms (Model driven forms): 
+	   . To create more complex forms but full control over form validations
+	   . most of the work is done in component class, therefore, easy to unit test 
+	   . complex validations can be done
+	   . Custom validators can be created
+	   . Form controls can be created dynamically  ?? (TODO)
 
 
+Q: What is template reference variable?
+A: It is defined with # (hash character). For ex: <ng-template>, @ViewChild
 
+
+Q: What are HTML5 built-in validators (template driven validators)?
+A:	required
+	maxlength
+	min
+	max
+	pattern	
+
+
+Q: What are various validation properties?
+A: These validation properties are available at FORM level as well as at each individual CONTROL level.
+	. touched: if the field has been touched
+	. untouched: if the field has been untouched
+
+	. dirty: value has been changed
+	. pristine: value has not been changed
+
+	. valid: if the field is valid or not
+	. invalid: if the field is invalid or not
+
+	. errors: validation errors
+	. value: the value "
+
+
+Q: Difference between setValue() and patchValue() methods?
+
+
+Q: What is FormBuilder class?
+A: It is a service class which needs to to injected in our component class. It has few methods like group(), array()
+
+
+Q: What are various Built-in validators in reactive Forms?
+A: 	required
+	minLength
+	maxLength
+	pattern : regEx pattern
+	email
+
+
+Q: How do you detect a value change in a form control or form group?
+A: We can use valueChanges observable.
+	- At FormControl level:
+	this.employeeForm.get("fullName").valueChanges.subscribe(val => {      
+      		this.fullNameLength = val.length;      
+	})
+
+	- At FormGroup level:
+	this.employeeForm.valueChanges.subscribe(val => {           
+      		console.log();      
+	})
+
+
+Q: How to add validators dynamically?
+A: employeeForm.get('fullName').setValidators([Validators.required])
+
+
+Q: How to remove all validators dynamically?
+A: employeeForm.get('fullName').clearValidators();
+
+
+Q: What is formArray Class?
+A: It can contain an array of :
+	FormControls
+	FormGroups
+	Nested FormArrays
+
+
+Q: What are the methods in formArray?
+A: 
+	push: inserts the control at the end of the array
+	insert: inserts the control at the specified index in the array
+	removeAt: Removes the control at the specified index in the array
+	setControl: Replace an existing control at the specified index
+	at: return the control the specified index in the array
+
+
+Q: How to generate formGroup and formContols dynamically?
+A: we can generate these by using group() method of formBuilder Class and we can define all form controls, their default values, and validators if any.
+
+
+Q: How to do validations in angular?
+A: we can do validations in Angular using reactive forms. 
 
 
 ========== CSS =============
