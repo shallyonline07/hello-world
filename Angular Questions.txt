@@ -164,8 +164,8 @@ Q: What is OnChanges interface?
 	- ngOnChanges(): This will only and only get called if the value of any of the input properties change.
 
 Q: Difference between HTML and DOM?
-	- "DOM (Document Object Model): ItÕs a model of objects that represents structure of a document. Its essentially a tree of objects in memory.
-	- HTML: itÕs a markup language that represents DOM.
+	- "DOM (Document Object Model): Itï¿½s a model of objects that represents structure of a document. Its essentially a tree of objects in memory.
+	- HTML: itï¿½s a markup language that represents DOM.
 
 	Note: When browser parses an HTML document it creates a tree of objects in memory that is known as DOM."
 
@@ -202,7 +202,7 @@ A:	required
 	pattern	
 
 
-Q: What are various validation properties?
+Q: What are various validation properties OR states of form and form controls?
 A: These validation properties are available at FORM level as well as at each individual CONTROL level.
 	. touched: if the field has been touched
 	. untouched: if the field has been untouched
