@@ -1,7 +1,359 @@
-======= TODO ========
-Q: What are ARIA attacks?
+TODO
+	- Javascript Closures
+	- Arrow function
+	- ES6 features
+	- OOPS pillers
 
-Q: Diff b/w @ViewChild and @ViewChildren? 
+Q: Please let me something about yourself.
+A: Yeah, I did MCA, masters of computer application. I am currently doing part time job in Winners as store associate but my core background is IT when I was working in India. I have above 4 and half years of IT experience. After my IT job, I had to move to the US on dependent visa and I was not allowed to work on that dependent visa. So, I had to stay away from my job and then I moved to Canada in 2019 on work permit and then I started my career again in 2020 with a part time job and I have been working there for about 1 and a half years. But Since, I belong to IT background so I always wanted to go back to my stream so I here I am :)
+
+My last project was about Property Tax Management System (PTMS) for orange county, California. We were migrating an old legacy mainframe application to a web application and we used AngularJS for frontend. I was a FE developer. My responsibilities were:
+	- Developing models, views and controllers of the web application using AngularJS, HTML, CSS.
+	- I used to implement responsive design using:
+		. bootstrap grid system
+		. @media queries
+		. Flexbox
+	- Integration of FE code with REST APIs
+	- Debugging UI code using chrome dev tools and fixing any issues
+	- coordinate with my US onsite team, they used to assign me user stories or bugs in JIRA.
+	- Working with BA to understand or clarify any requirements.
+	- Working with QA team to clarify any questions like how to reproduce a bug.
+	- Attending agile scrum ceremonies like daily stand-up. sprint planning, backlog refinements.
+
+
+Q: Why you did not continue in IT job?
+A: I moved to US along with my husband on dependent visa in 2013. The dependent visa does not allow to work in the US. And when I moved to Canada then my kid was less than a year old so I could not do any job.
+
+
+Q: How do you know about RBC?
+A: My husband works in OMNI in Bnext Journey.
+
+
+Q: Do you know who are our competitors?
+A: BMO, TD, Scotiabank, CIBC
+
+
+Q: Why do you want to work for RBC?
+A: I want to work with RBC because it is one of the best Canadian bank where I can grow as an IT professional and enhance my skills.
+
+
+Q: What is your greatest strength?
+A: I am a good team player. I can work independently as well. I am keen learner and always looking for ways to improve my technical skills.
+
+
+Q: What is your greatest weakness?
+A: I am a foodie and Food is my weakness.
+
+
+Q: What are the things that you used to do in JIRA?
+A:	- When the sprint starts, we used to have a sprint planning where we used to take user stories and bugs for that sprint.
+	- When I start on a particular story then I used to change the status from "TODO" to "In-Progress".
+	- If I have any questions, then I used to clarify that with corresponding person for ex: BA or designer.
+	- Similarly, I used to work on bugs that are assigned to me in JIRA. For any questions I used to contact QA team members.
+
+
+========== Behaviour questions ============
+Q: Can you tell us of a time when you went above and beyond the line of duty?
+A: Yes, I remember when I was working on a project with Ishir Infotech, I worked really hard and long hours to deliver on deadlines with quality and I got "Star of the Unit" award for that.
+
+
+Q: Can you give an example of a goal you failed to meet, and how you handled the situation?
+A: Yes, I remember that I failed to deliver on the deadline because while doing development I came across some new questions and before starting to work on user story I assumed that I know everything about that particular user story. But due to those open questions, it took some of my time to resolve my queries with onsite team. With this I got learning that I need to resolve all of my queries before starting a user story.
+
+
+Q: Tell us about a time when you solved a problem at your job that wasn�t part of your job description?
+A: I remember a few occasions where I helped BA to craft business stories with proper description. Although I am a technical developer but I think I contributed in business area too.
+
+
+Q: Tell us of a time when you took a risky decision and it didn�t pay off?
+A: I don't recall of any such instance.
+
+
+====== Angular JS =====
+Q: Can you tell me what you used to do in AngularJS in your last project?
+A: Yes, as a front end developer, I used to develop models, views and controllers of our web application. I also also make web pages responsive for various breakpoints.
+
+Q: What is the difference between Angular(A) and AngularJS(B)?
+	Angular: It uses components and directives
+	AngularJS: It uses MVC (Model-view-controller) design
+
+	Angular: It has a better structure and it is easy to create and manager angular applications. Because one component comprised of view, component, css and spec file.
+	AngularJS: It is difficult to manager when size of source code increases. Because all the file are spread across liek view, controller, style and spec file.
+
+	Angular: It is written in typescript. Therefore it is type safe.
+	AngularJS: It is written in javascript. It is not typesafe.
+
+	Angular: Two way binding is done using ngModel and [()].
+	AngularJS: Two way binding is done using ng-model.
+
+	Angular: One way binding is done using interpolation {{ }}, property binding [] and event binding ()
+	AngularJS: One way binding is done using ng-bind.
+
+	Angular: It provides mobile app support. We can use Ionic for mobile app development.
+	AngularJS: It does not provide mobile app support.
+
+
+
+
+
+AngularJS			Angular
+app.js  			app.component.ts
+view HTML  			same
+Controller			Component
+Model (REST Integration)	Common-Service (REST Integration)
+
+
+Q: have you worked on JIRA?
+Yes, Yes, I have worked on JIRA in my last project. It is basically an Agile project management tool and Bug tracking system. BA used to created user stories and QA team used to created bugs in JIRA. And as a frontend developer I used to work on user stories and bugs. 
+
+
+
+============== JAVASCRIPT ===============
+TODO:
+Q: What is the javascript closures?
+A: 
+
+
+Q: Difference between typescript and javascript?
+			TS: It is an object oriented programming language and superset of javascript.
+	 		JS: It is a scripting language
+
+			TS: It needs to be transpiled in to javascript because browser does not understand typescript.
+			JS: Browser understands typescript so it does not need to be compiled.
+
+			TS: It is strongly typed.
+			JS: It is not a typed language.
+
+			TS: It points out compilation errors at the of development therefore runtime errors are very less.
+			JS: It points out errors at runtime.
+
+			TS: It is same as javascript plus ES6 features.
+			TS: 
+
+			TS: It has support for intellisense which is helpful for faster development.
+			TS: No support for intellisense.
+
+
+============ JEST ===============
+Q: What is JEST?
+A: It is a Javascript unit testing framework developed by Facebook to test individual units. It provides a lot of APIs to perform unit testing of angular components, services, directives, pipes etc.
+
+
+Q: what is the use of createSpyObj()?
+A: 	- We use this to mock any service methods. For ex: commonService.getStudents() methods. And we can also return a mock value from this method by using "mockReturnValue()" function.
+	- It does not execute the actual method, rather it just spy on it.
+
+
+Q: What is the purpose of mocking in unit testing?
+A: 	- It is a process to simulate the same behaviour as actual functions or objects. For ex: If we need to unit test a service method, then we can create a spy object using createSpyObj() function by specifying service class name and method name. And if want to return a mock value from the service method then we can use "mockReturnValue()" function.
+		
+	- We can also mock objects to simulate the actual data. For ex: We can mock the response of REST APIs because we don't actually call the service. we just mock the response. We can do this by using mockReturnValue(of()).
+
+			mockService = createSpyObj('CommonService', ['getStudents']);
+			mockService.getStudents.mockReturnValue(of(mockData));
+
+			const mockSevice: any = {
+				getStudents: jest.fn().mockReturnValue(of(mockData))
+			}
+
+Q: What is a good code coverage percentage?
+A: I think 80% is a good coverage. But, Jest is pretty easy so we can also aim for 85-90%.
+	- Statements 	--> total lines
+	- Branches  		--> if, else
+	- Functions		--> computeSum()
+	- Lines
+
+
+Q: What is the use of mockReturnValue()?
+A: This is a very useful function to mock the return value of a method. It can be used with:
+	- jest.spyOn()
+	- jest.fn()
+	- createSpyObj()
+
+
+Q: What is spyOn() method used for?
+A: we can use spyOn() method to test if a function has been called or not. For ex:
+	jest.spyOn(component, 'computeSum');
+
+
+Q: how to spy on a method?
+A: 	- jest.spyOn(component, 'computeSum');
+	- It does not execute the actual method, rather it just spy on it.
+
+
+Q: How to mock a method?
+A: 	mockService: any = {
+		getStudents(): jest.fn()
+	}
+	- It does not execute the actual method, rather it just spy on it.
+
+
+Q: How would you test if a method has been called or not?
+A: 	- We can use .toHaveBeenCalledTimes() function to test if the method has been called and how many times.
+	- In order to test that we need to either spy on the method or mock it. jest.spyOn() or jest.fn()
+		ex:
+		jest.spyOn(component, 'computeSum');
+		expect(component.computeSum).toHaveBeenCalled() or .toHaveBeenCalledTimes(1); 
+
+
+Q: What are the assertion functions ?  --> expect(component).toBeTruthy();
+A: 	- .toBeTruthy()
+	- .toBeFalsy()
+	- .toBe()
+	- .toEqual()
+	- .toHaveBeenCalled()
+	- .toHaveBeenCalledTimes()
+
+
+Q: what are the examples of asynchronous operations?
+A: Observables, setTimeout()
+
+
+Q: How to test observable methods? OR How to test methods that returns observable?
+A: Observables are asynchronous operations. So in order to test them, we need to use fakeAsync() to wrap the testable function in async Zone and write our assertions there. We need to use flush() method to move the clock forward to simulate the completion of asynchronous operation.
+
+	it('should call commonService.getStudents', fakeAsync(() => {
+		component.ngOnInit();
+		flush();
+		expect();
+	}));
+
+
+Q: What is the use of flush()?
+A: 	- It is used to perform unit testing of asynchronous operations like observables or setTimeout().
+	- It basically moves the clock forward to simulate the completion of asynchronous operation.
+
+
+Q: What is the difference between flush() and tick() ?
+A: 	- tick(time in ms): It moves the clock forward with specified time.
+	- flush(): It moves the clock forward to simulate the completion of asynchronous operation.
+
+
+Q: Have you done white box testing?
+A: Yes, I know about white box testing. So, basically, it is a technique to examine internal design structure. For ex: If there is a function that has so many if else loops, then we can unit test for each logical branch by mocking data. This is an example of white box testing of a function. And in this way we can improve test coverage for branches as well.
+
+
+============ CSS/SASS ================ 
+Q: How would you centerally align an element in CSS?
+A: With the help of Flexbox properties like 
+	- justify-content to horizontally align element
+	- align-items to vertically align the element
+
+Q: what is the difference between visibility hidden and display none?
+
+Q: What is the CSS position property? 
+
+Q: What is the difference between relative, and absolute positions properties?
+
+Q: What are fixed and sticky position properties in CSS?
+
+Q: Have you worked on any CSS framework?
+A: Yes, I have used Bootstrap framework. 
+	- It is an open source 
+	- It is supported by all major browsers like chorm, firefox, safari.
+	- It is lightweight
+	- It is very useful to implement responsive design with grid system where we have several class for various breakpoints.
+	- It increases the productivity of the developers as its very easy to use and a very good community support.
+	- There is a library called ng-bootstrap that is a superset of standard bootstrap, plus it also provides ready to use
+		components for angular applications like accordion, pagination etc.
+
+
+Q: How to override styles of a third party component?
+A: we can use "ng-deep" to override styles of a third party components.
+	::ng-deep {
+		
+	}
+	ex: Lets say I am using <ngb-toast> which ng-bootstrap component. And I want to override the background color, 
+	then I'll have to use ::ng-deep.
+
+
+============== RxJs operators ==================
+	pipe():
+		- It is RxJs function that takes one or more operators and return an observable.
+  
+	of():
+		- It is used to transform a value into observable. For ex: of(true) will transform a boolean true to observable true.
+
+  map():
+		- It is an RxJs operator used to transform emitted values by an observable by applying a function to each emitted item.
+  
+	tap():
+		- It returns an observable that is identical to source observable
+		- It does not modify the emitted stream values.
+		- It can be used to log values and debugging purposes.
+	
+	filter():
+		- It is used to filter emitted items by applying a function. For ex: filtering a truthy service response
+			filter(response => Boolean(response))
+	
+	take(count):
+		- it returns the first count values emitted by source observable.
+	
+	switchMap():
+		- As its name suggests, it cancels previous observable, uses the value from it and suppy that value to new observable. 
+		
+	combineLatest():
+		- It combines the multiple observables by taking most recent value from each input observable
+		  and emitting those values to the observer as a combined output
+		
+	catchError():
+		- It is an error handling operator to catch and handle the errors on the observable
+	
+	finalize():
+		- It will always be called when the observable is completed or returns an error
+	
+	delay(timeValue):
+		- It waits for the specified time for each of the value from source observable and then it emits the value.
+	
+	debounceTime(timeValue):
+		- It waits for the specified time then it emits the LATEST value from source observable.
+		Ex:
+			name$.next('maahi');  // Statement 1
+			name$
+				.pipe(debounceTime(4000))
+				.subscribe(value => {
+					console.log('it will print the log 4 seconds after statement 1 has executed);
+				})
+	
+	distinctUntilChanged():
+		- It emits all items emitted by source observable that are distinct from previous item.
+	
+	TakeUntil():
+		- It is used to automatically unsubscribe from an observable.
+
+	mergeMap() / flatMap():
+    - It combines two observables and execute in parallel and finish the operation once all observables are completed
+    - If one request (observable) fails then it does not hamper the overall response
+    - It is NOT guaranteed that order will be maintained in the response
+  
+	forkJoin():
+    - It combines two observables and execute in parallel and finish the operation once all observables are completed
+    - If one request fails then the whole response is failed.
+    - It is guaranteed that order will be maintained in the response
+  
+	concatMap():
+    - It combines two observables and execute one by one and finish the operation once all observables are completed
+    - Response time is high comparative to mergeMap() and forkJoin() as it executes observables one by one.
+  
+
+Q: What is the difference between HTTP methods?
+A: 	- get(): 	This is used to request data from a specified resource(data).
+	- Post(): 	This is used to create/update the resource(data). Responses cannot be cached.
+	- Put():	Same as post. Responses can be cached.
+	- Patch(): 	This is used to modify the resource (data).
+	- Delete();	This is used to delete a specified resource (data).
+
+
+Q: How do you integrate Restful API's with Angular?
+A: 	- we need to import httpClient from angular/common/http package
+	- And do dependency injection in the constructor
+	- and we we can use any http client method like get, post, put or patch
+
+
+Q: What is transpiling?
+A: It is the process of compiling typescript into javascript. The browser understands Javascript there it's necessary to transpile Typescript code into javascript. It is when the code is build using ng build.
+
+
 
 Q: What is event Propagation or Event Bubbling?
 	- When there are nested elements and they have same event. Then Event Propagation happens from child to parent.
@@ -18,39 +370,83 @@ Q: How to stop event propagation?
 </div>
 
 
-Can you please let me something about yourself?
-Can you please explain about your responsibilities in last project?
+
+============= GIT ============
+Q: Create a new branch off another branch (develop):
+	git checkout -b feature/JIRA-1234 origin/develop
+
+if you are already on develop branch
+	git checkout -b feature/JIRA-1234
+
+
+Q: Pull changes from develop to local branch:
+	git merge origin/develop
+
+
+Q: Stage files
+	git add -A       [new, updated and deleted files]
+	
+
+Q: Un-stage all changes
+	git reset
+
+
+Q: Discard all local changes stages/un-staged permanently:
+	git reset --hard
+
+
+Q: Commit changes into feature branch:
+	git commit -m "comments comments"
+
+
+Q: push code
+	git push
+
+
+
+Q: Cherry pick from another commit: It merges changes from another commit
+	Syntax:	git cherry-pick <commit Sha>
+	Example:	git cherry-pick 5a9768bb
+
+
 
 
 ========== Angular ==========
-
 i18n (internationalization)
 a11y (accessibility)
 diff between build/compile
-husky pre-hooks
+
 
 . What is observable? What was equivalent to observable in AngularJS?
 	- Observables are used to make async operation like making Ajax calls to server
 	- In Angular1 we used to have Promises.
 
+
 Q: What is data binding and what are the different types of data bindings?
+
 
 Q: What is your fav topic in Angular?
 	- Data Binding, Sharing data b/w components
 
+
 Q: what is dependency injection? give me an example of how you can use it?
+
 
 Q: What is ng-template, ng-container, ng-content?
 
+
 Q: What is arrow function?
+
 
 Q: How would you show different error messages based on different HTTP errors returned by service responses?
 A: We can create a common "ErrorMessageComponent" to show different error messages. We can create a BehaviorSubject for example "httpError" and whenever an error is returned by service response we can insert that error in this BehaviorSubject in catchError() block. And the template we can call our common "ErrorMessageComponent" with input property that will have the httpError code. and inside the common component we can display different error messages based on HTTP error code.
+
 
 Q: Reactive Forms.
 A: - FormGroup
    - FormBuilder
    - FormArray
+
 
 Q: How to detect if any changes in FormGroup (ex: employeeForm) and any control inside form?
 A: we can subscribe to "valueChanges" property. 
@@ -277,16 +673,6 @@ Q: How to do validations in angular?
 A: we can do validations in Angular using reactive forms. 
 
 
-========== CSS =============
-Q: What is css position styles? Difference between absolute, relative, and sticky positions?
-
-
-Q: Have you worked on any CSS framework?
-	- Bootstrap
-
-
-
-
 
 ========== HTML ============
 It is preferred to use ".svg" files rather than ".png" or ".jpg" because ".svg" files are light weight and does not impact app performance.
@@ -296,13 +682,6 @@ It is preferred to use ".svg" files rather than ".png" or ".jpg" because ".svg" 
 
 
 
-============ Javascript ========
-Q: What is javascript closure?
-
-
-Q: What is typeof operator? 
-	- what is the result of ..... document.write(typeof null);....... [A: Object]
-	- what is the result of ..... document.write(typeof undefined);....... [A: undefined]
 
 
 
@@ -310,11 +689,6 @@ Q: What is typeof operator?
 
 
 
-
-
-
-
-Q: How do you integrate Restful API's with Angular and react separately
 
 
 Q: what is Webpack and what does it do?
@@ -596,7 +970,7 @@ Q: Difference between one way binding and two way binding in angularjs
 . How do you access $scope.apply in plain javascript
 ==[*] What are events in angular?  Like $broadcast and $emit services in angular.
 . How will you a javascript file so that other modules can also use it in your project? or How to include an external javascript file in html? [<script src="myscripts.js"></script>]
-==[*] Javascript closures?
+
 16. did you write any test script using jasmine/karma?
 ==[*]Have you worked in Agile? What is the sprint duration? What role you play in that?
 
