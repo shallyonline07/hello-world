@@ -292,6 +292,26 @@ A:
 		- It executes a provided function for each element on the source array.
 		
 
+Q: What is an enumerator?
+A: Enums allows to define a set of named constants. In Typescript we can have both numeric and string based enums.
+	export enum Status {
+		APPROVED = 'approved',
+		DECLINED = 'declined'
+		IN_PROGRESS = 'in progress'
+	}
+
+
+Q: What is an interface?
+A: An interface can be used to define a user defined data type. For ex: we can define an interface named PolicyData as a data type for service response. We can have few properties and their data type like number, string, boolean etc.
+	export interface PolicyData {
+		policyId: number;
+		policyName: string;
+		policyExpiry: string
+		isPolicyActive: boolean
+	}
+
+
+
 
 
 ******************************************************************
@@ -348,7 +368,8 @@ Q: Difference between HTML and DOM?
 	Note: When browser parses an HTML document it creates a tree of objects in memory that is known as DOM."
 
 
-
+Q: Is it preferred to use HTML tables?
+A: No, flexbox is preferred.
 
 
 ******************************************************************
@@ -550,8 +571,21 @@ Q: Difference between Subject and BehaviorSubject?
 ******************************************************************
 
 i18n (internationalization)
-a11y (accessibility)
-diff between build/compile
+
+
+Q: What do you understand by a11y (accessibility) requirements?
+A: 	
+	- It means if a website is accessible to everyone including visually impaired people, people with less motor skills like shaky hands. 	- Such people should be able to access a website.
+	- There are some HTML elements and attributes for aria which we can use to implement accessibility requirements. 
+		For ex: <aria-label>, aria-hidden = "true", aria-required = "true"
+	- there are bootstrap classes also for accessibility. For ex: sr-only
+
+	ARIA = accessible rich internet application
+	- No ARIA is better than a bad ARIA.
+
+	- There are some browser tools to test accessibility requirements
+		For ex: Wave, Axe etc.
+
 
 
 Q: What are angular LifeCycle hooks?
