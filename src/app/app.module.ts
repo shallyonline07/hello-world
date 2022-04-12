@@ -40,6 +40,7 @@ import { RegisterEmployeeComponent } from './components/forms/reactive/register-
 import { RxjsOperatorsComponent } from './components/rxjs-operators/rxjs-operators.component';
 import { DecoratorsComponent } from './components/decorators/decorators.component';
 import { AngularStructureComponent } from './components/angular-structure/angular-structure.component';
+import { Es6FeaturesComponent } from './components/es6-features/es6-features.component';
 
 
 
@@ -80,6 +81,7 @@ import { AngularStructureComponent } from './components/angular-structure/angula
     RxjsOperatorsComponent,
     DecoratorsComponent,
     AngularStructureComponent,
+    Es6FeaturesComponent,
    
   ],
   imports: [

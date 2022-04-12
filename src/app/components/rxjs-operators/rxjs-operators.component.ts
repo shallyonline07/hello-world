@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { catchError, filter, finalize, map, switchMap, take, tap } from 'rxjs/operators';
+import { catchError, debounceTime, delay, filter, finalize, map, switchMap, take, tap } from 'rxjs/operators';
 import { CommonServiceService } from '../../services/common-service.service';
 import { combineLatest, of } from 'rxjs';
 
@@ -22,11 +22,13 @@ export class RxjsOperatorsComponent implements OnInit {
   ngOnInit(): void {
     // this.mapExample();
     // this.filterExample();
-    // this.tapExample();
-    // this.takeExample();
+    this.tapExample('Javascript closure example');
+    this.takeExample('Javascript closure example');
     // this.switchMapExample();
     // this.combineLatestExample();
     this.catchErrorExample();    
+    this.delayExample();    
+    this.debounceTimeExample();    
   }
 
   mapExample() {
@@ -56,18 +58,26 @@ export class RxjsOperatorsComponent implements OnInit {
       })
   }
 
-  tapExample() {
+  tapExample(value: string) {
     this.commonService.getStudents()
       .pipe(
-        tap(() => this.showData = true),
+        tap(() => {
+          this.showData = true;
+          console.log(value);
+          
+        }),
       )
       .subscribe(response => console.log(response))
   }
 
-  takeExample() {
+  takeExample(value: string) {
     this.commonService.getStudents()
       .pipe(take(1))
-      .subscribe(response => console.log(response))
+      .subscribe((response) => {
+        console.log(response);
+        console.log(value);
+        
+      })
   }
 
   switchMapExample() {
@@ -111,4 +121,21 @@ export class RxjsOperatorsComponent implements OnInit {
         console.log(response);
       })
   }
+
+  delayExample() {
+    this.commonService.getStudents()
+      .pipe(delay(4000))
+      .subscribe((response) => {
+        console.log(response);
+      })
+  }
+
+  debounceTimeExample() {
+    this.commonService.getStudents()
+      .pipe(debounceTime(4000))
+      .subscribe((response) => {
+        console.log(response);
+      })
+  }
+
 }
