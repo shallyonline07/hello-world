@@ -2,7 +2,7 @@
 =============== Angular Interview Questions ======================
 ******************************************************************
 
-
+[*]
 Q: Please let me know something about yourself.
 A: Yeah, I did MCA, masters of computer application. I am currently doing part time job in Winners as store associate but my core background is IT when I was working in India. I have above 4 and half years of IT experience. After my IT job, I had to move to the US on dependent visa and I was not allowed to work on that dependent visa. So, I had to stay away from my job and then I moved to Canada in 2019 on work permit and then I started my career again in 2020 with a part time job and I have been working there for about 1 and a half years. But Since, I belong to IT background so I always wanted to go back to my stream so I here I am :)
 
@@ -24,12 +24,12 @@ Q: Why you did not continue in IT job?
 A: I moved to US along with my husband on dependent visa in 2013. The dependent visa does not allow to work in the US. And when I moved to Canada then my kid was less than a year old so I could not do any job.
 
 
-Q: How do you know about RBC?
+Q: How did you come to know about RBC?
 A: My husband works in OMNI in Bnext Journey.
 
 
 Q: Do you know who are our competitors?
-A: BMO, TD, Scotiabank, CIBC
+A: BMO, TD, Scotiabank, CIBC?
 
 
 Q: Why do you want to work for RBC?
@@ -65,11 +65,11 @@ Q: Can you give an example of a goal you failed to meet, and how you handled the
 A: Yes, I remember that I failed to deliver on the deadline because while doing development I came across some new questions and before starting to work on user story I assumed that I know everything about that particular user story. But due to those open questions, it took some of my time to resolve my queries with onsite team. With this I got learning that I need to resolve all of my queries before starting a user story.
 
 
-Q: Tell us about a time when you solved a problem at your job that wasn�t part of your job description?
+Q: Tell us about a time when you solved a problem at your job that was not part of your job description?
 A: I remember a few occasions where I helped BA to craft business stories with proper description. Although I am a technical developer but I think I contributed in business area too.
 
 
-Q: Tell us of a time when you took a risky decision and it didn�t pay off?
+Q: Tell us of a time when you took a risky decision and it didn't pay off?
 A: I don't recall of any such instance.
 
 
@@ -81,6 +81,16 @@ A: I don't recall of any such instance.
 
 Q: Can you tell me what you used to do in AngularJS in your last project?
 A: Yes, as a front end developer, I used to develop models, views and controllers of our web application. I also also make web pages responsive for various breakpoints.
+
+
+AngularJS			Angular
+app.js  			app.component.ts
+view HTML  			same
+Controller			Component
+Model (REST Integration)	Common-Service (REST Integration)
+
+
+
 
 Q: What is the difference between Angular(A) and AngularJS(B)?
 	Angular: It uses components and directives, services, routes as its building blocks.
@@ -102,12 +112,6 @@ Q: What is the difference between Angular(A) and AngularJS(B)?
 	AngularJS: It does not provide mobile app support.
 
 
-AngularJS			Angular
-app.js  			app.component.ts
-view HTML  			same
-Controller			Component
-Model (REST Integration)	Common-Service (REST Integration)
-
 
 Q: have you worked on JIRA?
 Yes, Yes, I have worked on JIRA in my last project. It is basically an Agile project management tool and Bug tracking system. BA used to created user stories and QA team used to created bugs in JIRA. And as a frontend developer I used to work on user stories and bugs. 
@@ -119,23 +123,12 @@ Yes, Yes, I have worked on JIRA in my last project. It is basically an Agile pro
 ======================= JAVASCRIPT ===============================
 ******************************************************************
 
+[*]
 Q: What is the javascript closures?
-A: It is a function inside another function. We use closures very frequently. For ex: when we subscribe to service response we use an arrow function inside subscribe.
-	and we can access the value passed to outer function inside arrow function.
+A: It is a function inside another function. We use closures very frequently in angular. For ex: array map() function, forEach() function, subscribing to observables. In all of these we use callback function. So, basically a function within another function.
 
 
-For ex: we have a function in the component to fetch service response. 
-		this.getPolicyData(10);
-
-		getPolicyData(pageNumber: string) {
-			this.service.getPolicyDataFromService()
-				.subscribe((response) => {
-					console.log(pageNumber);
-				})
-
-		}
-
-
+[*]
 Q: Difference between typescript and javascript?
 			TS: It is an object oriented programming language and superset of javascript.
 	 		JS: It is a scripting language
@@ -146,7 +139,7 @@ Q: Difference between typescript and javascript?
 			TS: It is strongly typed. For ex: we declare variable or constants with a data type. Ex: showStatus: boolean;
 			JS: It is not a typed language.
 
-			TS: It points out compilation errors at the of development.
+			TS: It points out compilation errors at the time of development, which is a very good feature.
 			JS: It points out errors at runtime.
 
 			TS: It is same as javascript plus ES6 features.
@@ -163,16 +156,17 @@ A: 	- get(): 	This is used to request data from a specified resource(data).
 	- Put():	Same as post. Responses can be cached.
 	- Patch(): 	This is used to modify the resource (data).
 	- Delete();	This is used to delete a specified resource (data).
-
-
+[*]
 Q: How do you integrate Restful API's with Angular?
-A: 	- we need to import httpClient from angular/common/http package
-	- And do dependency injection in the constructor
-	- and we we can use any http client method like get, post, put or patch
+A: 	- We can create a custom service class
+	- And we need to import httpClient from angular/common/http package
+	- And we do dependency injection in the constructor
+
+	- And we can use any http client methods like get, post, put or patch
 
 
 Q: What is Transpiling?
-A: It is the process of compiling typescript into javascript. The browser understands Javascript there it's necessary to transpile Typescript code into javascript. It is when the code is build using ng build.
+A: It is the process of compiling typescript into javascript. The browser understands Javascript there it's necessary to transpile Typescript code into javascript. It is done when the code is build using ng build.
 
 
 
@@ -190,7 +184,7 @@ Q: How to stop event propagation?
       <button (click)="onClickBtn(); $event.stopPropagation()"></button>
 </div>
 
-
+[*]
 . How do you make a parameter optional in a method in Typescript/Angular?
 	- we can add a question mark (?) after the param name. 
 	For ex:
@@ -201,8 +195,8 @@ Q: How to stop event propagation?
 
 
 Q: What is an arrow function?
-	- Arrow functions were introduced in ES6 version of javascript in 2015.
-	- It refines this keyword. The scope of this is global. Basically you can access this inside arrow function.
+	- Arrow functions were introduced in ES6 version of javascript.
+	- It refines the this keyword. The scope of this is global. Basically you can access the value this keyword inside arrow function. which is the main benefit.
 	- Arrow function should not be used to constructor function.
 	- They allow us to write shorter function syntax:
 		
@@ -231,9 +225,9 @@ Q: What is an arrow function?
 
 Q: New features in ES6 version of javascript?
 A: 	- new keywords like let, const, this
-		- arrow function
-		- spread operator
-		- Object Desctructuring
+	- arrow function  (fat arrow operator => )
+	- spread operator (three dots ...)
+	- Object Destructuring
 
 
 Q: How will you clone ( make a new copy) an array?
@@ -418,9 +412,8 @@ A:	Mixin
 	Partials  A.K.A modules (for modularity)
 	Nesting
 	Extend/Inheritance
+
 	
-
-
 
 
 ******************************************************************
@@ -570,23 +563,6 @@ Q: Difference between Subject and BehaviorSubject?
 ========================= ANGULAR ================================
 ******************************************************************
 
-i18n (internationalization)
-
-
-Q: What do you understand by a11y (accessibility) requirements?
-A: 	
-	- It means if a website is accessible to everyone including visually impaired people, people with less motor skills like shaky hands. 	- Such people should be able to access a website.
-	- There are some HTML elements and attributes for aria which we can use to implement accessibility requirements. 
-		For ex: <aria-label>, aria-hidden = "true", aria-required = "true"
-	- there are bootstrap classes also for accessibility. For ex: sr-only
-
-	ARIA = accessible rich internet application
-	- No ARIA is better than a bad ARIA.
-
-	- There are some browser tools to test accessibility requirements
-		For ex: Wave, Axe etc.
-
-
 
 Q: What are angular LifeCycle hooks?
 
@@ -716,7 +692,7 @@ Q: Structure of Angular Project	?
 			. Helpful information to run the application.
 		- tsconfig: 
 			. There are three separate tsconfig files for app and spec.
-			. it mentions typescript configuration settings like "compiler Options" and "files to be included" etc.
+			. it mentions typescript configuration settings like "compilerOptions" and "files to be included" etc.
 		- tslint.json:
 			. We can mentione any linting (code quality) configuration settings like 
 				* single or double quotes,
@@ -742,7 +718,7 @@ Q: what is Webpack and what does it do?
 
 3. styles.js: It includes all stylesheets of our application. Notice that stylesheets are stored in a javascript bundle.
 
-4. vendor.js: It includes all third party libraries of our application
+4. vendor.js: It includes all third party libraries of our application and JIT compiler.
 
 5. runtime.js: Whenever, you change any code (ts or style), Angular CLI compiles the code and refreshes all these bundles.
 
@@ -801,6 +777,23 @@ Q: What is async pipe, why do we use it?
 	unsubscribe explicitly.
 
 
+i18n (internationalization)
+
+
+Q: What do you understand by a11y (accessibility) requirements?
+A: 	
+	- It means if a website is accessible to everyone including visually impaired people, people with less motor skills like shaky hands. 	- Such people should be able to access a website.
+	- There are some HTML elements and attributes for aria which we can use to implement accessibility requirements. 
+		For ex: <aria-label>, aria-hidden = "true", aria-required = "true"
+	- there are bootstrap classes also for accessibility. For ex: sr-only
+
+	ARIA = accessible rich internet application
+	- No ARIA is better than a bad ARIA.
+
+	- There are some browser tools to test accessibility requirements
+		For ex: Wave, Axe etc.
+
+
 
 	====== Routing =======
 Q: What is Angular router?
@@ -808,6 +801,9 @@ Q: What is Angular router?
 Q: Why it is important to keep a proper order of routes ?
 
 Q: What is routes matching strategy? 
+	"pathMatch"
+	- prefix
+	- full
 
 Q: What is router-outlet ?
 
@@ -883,19 +879,6 @@ A: 	required
 	email
 
 
-Q: How do you detect a value change in a form control or form group?
-A: We can use valueChanges observable.
-	- At FormControl level:
-	this.employeeForm.get("fullName").valueChanges.subscribe(val => {      
-      		this.fullNameLength = val.length;      
-	})
-
-	- At FormGroup level:
-	this.employeeForm.valueChanges.subscribe(val => {           
-      		console.log();      
-	})
-
-
 Q: How to add validators dynamically?
 A: employeeForm.get('fullName').setValidators([Validators.required])
 
@@ -913,14 +896,14 @@ A: It can contain an array of :
 
 Q: What are the methods in formArray?
 A: 
-	push: inserts the control at the end of the array
-	insert: inserts the control at the specified index in the array
-	removeAt: Removes the control at the specified index in the array
-	setControl: Replace an existing control at the specified index
-	at: return the control the specified index in the array
+	push(): inserts the control at the end of the array
+	insert(): inserts the control at the specified index in the array
+	removeAt(): Removes the control at the specified index in the array
+	setControl(): Replace an existing control at the specified index
+	at(): return the control the specified index in the array
 
 
-Q: How to generate formGroup and formContols dynamically?
+Q: How to generate formGroup and formControls dynamically?
 A: we can generate these by using group() method of formBuilder Class and we can define all form controls, their default values, and validators if any.
 
 
@@ -941,8 +924,6 @@ A: we can subscribe to "valueChanges" property.
   this.myForm.get('name').valueChanges.subscribe(val => {
     console.log(val);
   });
-
-
 
 
 
@@ -972,13 +953,6 @@ A: 	- It is a process to simulate the same behaviour as actual functions or obje
 			const mockSevice: any = {
 				getStudents: jest.fn().mockReturnValue(of(mockData))
 			}
-
-Q: What is a good code coverage percentage?
-A: I think 80% is a good coverage. But, Jest is pretty easy so we can also aim for 85-90%.
-	- Statements 	--> total lines
-	- Branches  		--> if, else
-	- Functions		--> computeSum()
-	- Lines
 
 
 Q: What is the use of mockReturnValue()?
@@ -1050,6 +1024,14 @@ Q: Have you done white box testing?
 A: Yes, I know about white box testing. So, basically, it is a technique to examine internal design structure. For ex: If there is a function that has so many if else loops, then we can unit test for each logical branch by mocking data. This is an example of white box testing of a function. And in this way we can improve test coverage for branches as well.
 
 
+Q: What is a good code coverage percentage?
+A: I think 80% is a good coverage. But, Jest is pretty easy so we can also aim for 85-90%.
+	- Statements 	--> total lines
+	- Branches  		--> if, else
+	- Functions		--> computeSum()
+	- Lines
+
+
 
 
 
@@ -1107,7 +1089,8 @@ A:  	Git Clone:
 	- It not synchronized with original git repo.
 
 
-
+Q: Do you know about CI/CD pipelines?
+A: 
 
 
 
