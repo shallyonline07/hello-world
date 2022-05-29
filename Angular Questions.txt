@@ -2,9 +2,37 @@
 =============== Angular Interview Questions ======================
 ******************************************************************
 
+4.5 -> four and a half years
+USA -> US
+
+Angular:
+	- The coding is done in Typescript which is an OOP language.
+	- It supports intellisense which makes coding easier and faster.
+	- Angular has its own CLI tools. You can create an angular app very easily with CLI tools. Angular creates a Boilerplate and basic app structure. 
+	- In angular all files related to a components are kept inside a folder. For ex: html, scss, component, spec file, whereas in angularJS these files are kept at different locations like all HTMLs are kept inside view folder and all controllers are kept inside controller folder and so on.
+	- There are lot of VsCode extensions available for angular for ex: JestRunner, Auto-import.  (AngularJS code editor = Sublime Text)
+
+
+
+Model 		->  common service
+View			->  View
+Controller		->  Component
+
+
+
+OMNI: I don't know much about it but at high level I know that they are building a business banking application.
+	
+
+I am good team player, very dedicated and I got start of the unit award and most importantly, I have four and a half years of IT exp uncluding woring wiht BA, QA, BE services team and other developers on the team.
+Therefore, I think I deserve 72000. But this is negotiable, and please let me know if this is okay.
+
+
+
+
+
 [*]
 Q: Please let me know something about yourself.
-A: Yeah, I did MCA, masters of computer application. I am currently doing part time job in Winners as store associate but my core background is IT when I was working in India. I have above 4 and half years of IT experience. After my IT job, I had to move to the US on dependent visa and I was not allowed to work on that dependent visa. So, I had to stay away from my job and then I moved to Canada in 2019 on work permit and then I started my career again in 2020 with a part time job and I have been working there for about 1 and a half years. But Since, I belong to IT background so I always wanted to go back to my stream so I here I am :)
+A: Yeah, I did MCA, masters of computer application. I am currently doing part time job in Winners as store associate but my core background is IT when I was working in India. I have more than 4 and half years of IT experience. After my IT job, I had to move to the US on dependent visa and I was not allowed to work on that dependent visa. So, I had to stay away from my job and then I moved to Canada in 2019 on work permit and then I started my career again in 2020 with a part time job and I have been working there for about 1 and a half years. But Since, I belong to IT background so I always wanted to go back to my stream so I here I am :)
 
 My last project was about Property Tax Management System (PTMS) for orange county, California. We were migrating an old legacy mainframe application to a web application and we used AngularJS for frontend. I was a FE developer. My responsibilities were:
 	- Developing models, views and controllers of the web application using AngularJS, HTML, CSS.
