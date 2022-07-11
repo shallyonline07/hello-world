@@ -1,0 +1,1151 @@
+TODO: 
+
+	- Nx (Mono-repos)
+	- NgRx questions
+	- Accessibility and browser tools (Axe, )
+	- Micro frontends
+	- HTTP intercepter
+	- 
+	- Annotation vs decorator (@component, @pipe, @injectable)
+
+Npm publish
+Build a lib command
+
+
+
+Q: What are security features in Angular? OR how will you secure your angular application?
+A: 	1. XSS: Angular has a built-in protection mechanism against web app vulnerabilities and attacks such as Cross site scripting attacks (XSS).
+	  - in XSS, attackers can inject a malicious code into web pages. And that code can steal imp info such as user credentials. These kinds of attacks mostly happen through querystring. So if you want to use querystring then make sure the critical values like SIN, SSN, SRF or any such information is encrypted. So that it is not understandable by attackers or any user per se.
+    	  - For ex: an attacker might enter some script tag in inout field. Basically, any malicious code should not enter the DOM. 
+	  - By default Angular treats all values as untrusted when the values are inserted into DOM through interpolation or attribute etc. Angular sanitizes (removes) and escapes untrusted values before rendering. 
+	  - In Angular, XSS related security is defined in "BrowserModule" of platform-browser npm package.
+
+	2. AOT Compilation: From version 10 onwards, Angular provides AOT compilation feature by default.
+	  - It prevents security vulnerabilities called "template injection". Since AOT compiles HTML templates and components into JS files long before they are served to the client (browser), the browser does not have to read any templates and hence less chances of injection attacks. And improves performance as well. 
+	  - Therefore, we should always use AOT template compiler.
+
+	3. Route guards: These are interfaces provided by Angular that allow us to control accessibility of a route based on conditions provided in a service class that implements those interfaces. For ex: Usually the normal user will start navigation of the application through sign-in page and then navigate to different menus/screens. So the authentication is already done on sign in page like whether user is eligible or not. But an authorized user may directly hit the URL of a particular screen and then the use of route guards come into picture. We can call a service to check eligibility of the user if not eligible then we could redirect then to sign-in page.
+	  - There are various interfaces like CanActivate, CanActivateChild, CanDeactivate, CanLoad, Resolve
+		
+	4. Do not use DOM APIs such as elementRef, document etc. Angular does not have control over these DOM APIs so it does not have protection against security vulnerability. 
+
+	5. Always use up-to-date angular libraries as they have fixes for security defects found in earlier releases.
+
+	6. Validate user submitted data on server side code. Because attackers can use cross site scripting (XSS) methods to manipulate critical data if validated at client side. Therefore, validating user data at service side prevents app from this kind of attack.
+
+
+
+
+
+
+
+******************************************************************
+=============== Angular Interview Questions ======================
+******************************************************************
+
+Q: Please let me know something about yourself.
+A: Thanks for the opportunity to introduce myself. I did masters in computers applications. I've worked on various implementations in several business domains including Real estate, Property Tax, Insurance and most recently and current one is banking domain. I am currently working as a lead front end developer in OMNI RBC. I joined this project back in Feb 2019 when it was started so I am working here from beginning of the project. We're developing business banking app and my squad is responsible of delivering various features like  
+		. transactions of various accounts like BDA, CC etc. 
+		. Export feature (TODO: how)
+		. Transaction search module
+		. Approvals dashboard: to show various approval work items related to payments or MCA changes or Access level changes in P&P module.
+		. Activity Log dashboard: To show history of activities(work items) from approvals, people and permissions.
+		. Admin console to onboard business clients.
+		. Highcharts implementation: That gave clients the ability to see periodical revenues and it was a critical milestone for business.
+
+Though I have worked on implementation of all of these features but Activity Log, Admin console, and Highcharts integration I implemented frontend part single handedly.
+
+My day to day responsibilities include:
+	- Frontend development
+	- Reviewing PRs
+	- Working with Product owner, BA, content and UX designers.
+	- Attending weekly Tech leadership committee meetings (I represent my squad in these TLC meetings)
+		. Discuss on tech debts items, tech upgrades, cypress (e2e testing) implementation, code coverage stuff like that.
+	- Participating in agile scrum ceremonies like daily standup, sprint planning, backlog refinements, sprint demos at the end of the sprint, & retros.
+	- I also take the responsibility of a scrum master as we don't have a dedicated one in our squad. We have rotating scrum master policy :-)
+	- And mentoring co-ops and providing tech help to other devs on the squad, if needed.
+
+
+Q: Why do you want to work for Capco?
+A: Copco has a good name. There are several talented capco employee who are working in OMNI. And also for career progress I am looking for switch.
+
+
+Q: What is your greatest strength?
+A: My dedication and communication is my biggest strength. No one is perfect but I always try to be as close as possible.
+
+
+Q: What is your greatest weakness?
+A: Everyone has weakness and I am no different. Sometimes I tend to get little extra workaholic. I know it is not good for a better work life balance. I am improving on this aspect. 
+
+
+
+
+Angular:
+	- Angular has its own CLI tools. You can create an angular app very easily with CLI tools. Angular creates a Boilerplate and basic app structure. 
+	- In angular all files related to a components are kept inside a folder. For ex: html, scss, component, spec file, whereas in angularJS these files are kept at different locations like all HTMLs are kept inside view folder and all controllers are kept inside controller folder and so on.
+	- There are lot of VsCode extensions available for angular for ex: JestRunner, Auto-import.  (AngularJS code editor = Sublime Text)
+
+
+
+
+
+******************************************************************
+======================= Behavioural questions ====================
+******************************************************************
+
+Q: Can you tell us of a time when you went above and beyond the line of duty?
+A: Oh yes, couple of times in my career. For ex: The recent one being the delivery of Activity Log we had several hiccups like IST environment was down, sometimes downstream services were down so I was not able to connect my local to IST and was unable to carry on my development as I needed real data. Mocks were not sufficient. Since I committed so I spent some long hours for several days in a row including weekends to complete development, unit test coverage, responsive design and firing of GA events, making sure language translations and accessibility stuff are in place and properly tested. We were to meet the deadline.
+
+d
+Q: Can you give an example of a goal you failed to meet, and how you handled the situation?
+A: Yes, I remember. Not in the current project but in my previous project for a different client. I needed to complete an implementation of a feature and most of the work was done and then I came across a question and our BA was on vacation and the backup person did not have an answer of my query. So 
+
+
+
+I was working for AIG that I failed to deliver on the deadline because while doing development I came across some new questions and before starting to work on user story I assumed that I know everything about that particular user story. But due to those open questions, it took some of my time to resolve my queries with onsite team. With this I got learning that I need to resolve all of my queries before starting a user story.
+
+
+Q: Tell us about a time when you solved a problem at your job that was not part of your job description?
+A: US updates with business scenarios.
+
+I remember a few occasions where I helped BA to craft business stories with proper description. Although I am a technical developer but I think I contributed in business area too.
+
+
+Q: Tell us of a time when you took a risky decision and it didn't pay off?
+A: I don't recall of any such instance.
+
+
+
+******************************************************************
+======================= JAVASCRIPT ===============================
+******************************************************************
+
+[*]
+Q: What is the javascript closures?
+A: It is a function inside another function. We use closures very frequently in angular. For ex: array map() function, forEach() function, subscribing to observables. In all of these we use callback function. So, basically a function within another function.
+
+
+[*]
+Q: Difference between typescript and javascript?
+			TS: It is an object oriented programming language and superset of javascript.
+	 		JS: It is a scripting language
+
+			TS: It needs to be transpiled in to javascript because browser does not understand typescript.
+			JS: Browser understands jypescript so it does not need to be compiled.
+
+			TS: It is strongly typed. For ex: we declare variable or constants with a data type. Ex: showStatus: boolean;
+			JS: It is not a typed language.
+
+			TS: It points out compilation errors at the time of development, which is a very good feature.
+			JS: It points out errors at runtime.
+
+			TS: It is same as javascript plus ES6 features.
+			TS: 
+
+			TS: It has support for intellisense which is helpful for faster development.
+			TS: No support for intellisense.
+
+
+
+Q: What is the difference between HTTP methods?
+A: 	- get(): 	This is used to request data from a specified resource(data).
+	- Post(): 	This is used to create/update the resource(data). Responses cannot be cached.
+	- Put():	Same as post. Responses can be cached.
+	- Patch(): 	This is used to modify the resource (data).
+	- Delete();	This is used to delete a specified resource (data).
+[*]
+Q: How do you integrate Restful API's with Angular?
+A: 	- We can create a custom service class
+	- And we need to import httpClient from angular/common/http package
+	- And we do dependency injection in the constructor
+
+	- And we can use any http client methods like get, post, put or patch
+
+
+Q: What is Transpiling?
+A: It is the process of compiling typescript into javascript. The browser understands Javascript there it's necessary to transpile Typescript code into javascript. It is done when the code is build using ng build.
+
+
+
+Q: What is event Propagation or Event Bubbling?
+	- When there are nested elements and they have same event. Then Event Propagation happens from child to parent.
+	- In below code, when button is clicked then Both the methods are called.
+<div (click)="onClickDiv()">
+      <button (click)="onClickBtn()"></button>
+</div>
+
+
+Q: How to stop event propagation?
+	- we can use below code and it will not call parent event handler
+<div (click)="onClickDiv()">
+      <button (click)="onClickBtn(); $event.stopPropagation()"></button>
+</div>
+
+[*]
+. How do you make a parameter optional in a method in Typescript/Angular?
+	- we can add a question mark (?) after the param name. 
+	For ex:
+	drawLine(x : number, y? : number){}  // here x is mandatory and y is optional
+	drawLine(x? : number, y? : number){}  // here x, y are optional
+	Note: if a parameter is optional then all params on RHS must also be optional
+
+
+
+Q: What is an arrow function?
+	- Arrow functions were introduced in ES6 version of javascript.
+	- It refines the this keyword. The scope of this is global. Basically you can access the value this keyword inside arrow function. which is the main benefit.
+	- Arrow function should not be used to constructor function.
+	- They allow us to write shorter function syntax:
+		
+		=== Ex 1: ===
+		before:
+		function myFunction(a, b) {
+			return a + b;
+		}
+
+		With arrow function:
+		let myFunction = (a, b) => a + b;
+
+		=== Ex 2: ==
+		before: 
+		this.commomService.getStudents().then(function(response) {
+			console.log(response);
+		})
+
+		With arrow function:
+		this.commomService.getStudents().Subscribe(response => console.log(response))
+
+
+	- If there is only one parameter then you can skip parantheses.
+		let concatName = val => "hello " + val;
+
+
+Q: New features in ES6 version of javascript?
+A: 	- new keywords like let, const, this
+	- arrow function  (fat arrow operator => )
+	- spread operator (three dots ...)
+	- Object Destructuring
+
+
+Q: How will you clone ( make a new copy) an array?
+A: I can use spread operator.
+	const numbers = [1,2,3];
+	const newNumbers = [...numbers];
+
+
+Q: How will you merge two arrays?
+A: I can use spread operator.
+	const numbers1 = [1,2,3];
+	const numbers2 = [4,5,6];
+	const numbers3 = [...numbers1, ...numbers2];
+
+
+
+Q: How will you clone (make a new copy) an Object?
+A: I can use spread operator.
+	const address1 = {
+      	   city: 'Bowmanville',
+	   state: 'Ontario',
+	   country: 'Canada'
+	};
+
+    	const address2 = { ...address1 }; 
+
+
+Q: How will you merge twp objects?
+A: I can use spread operator.
+	const address1 = {
+          city: 'Bowmanville',
+          state: 'Ontario',
+          country: 'Canada'
+       };
+
+	const vegetables = {
+          name: 'potato',
+          price: 10
+       }
+
+	const newObject = { ...address1, ...vegetables  };
+
+
+Q: How will you insert a new value in array?
+A: using push() method.
+	let numbers = [1,2,3];
+	numbers.push(4);
+
+
+Q: Difference between map() and forEach() array methods?
+A: 
+	map(): 
+		- It executes a provided function for each element on the source array and returns a new array
+		
+	forEach(): 
+		- It executes a provided function for each element on the source array.
+		
+
+Q: What is an enumerator?
+A: Enums allows to define a set of named constants. In Typescript we can have both numeric and string based enums.
+	export enum Status {
+		APPROVED = 'approved',
+		DECLINED = 'declined'
+		IN_PROGRESS = 'in progress'
+	}
+
+
+Q: What is an interface?
+A: An interface can be used to define a user defined data type. For ex: we can define an interface named PolicyData as a data type for service response. We can have few properties and their data type like number, string, boolean etc.
+	export interface PolicyData {
+		policyId: number;
+		policyName: string;
+		policyExpiry: string
+		isPolicyActive: boolean
+	}
+
+
+
+
+
+******************************************************************
+============================== OOP ===============================
+******************************************************************
+
+Q: What are the basic pillers of OOP (object oriented programming)?
+A: 
+	- Abstraction
+		. Hiding irrelevant information and showing only the important and relevant information for easy use.
+		. For ex: using methods of HttpClient class. like get(), post() etc.
+	
+	- Encapsulation
+		. Enclosing all properties and methods inside a class.
+		. For ex: A common service with few BehaviorSubjects, Observables and methods to fetch data from REST APIs.
+		. The methods can be public or private (access modifiers)
+	
+	- Inheritance
+		. Extending or implementing the features from super class or interface into your class.
+		. For ex: we implement OnInit interface in our component class
+		. Another example: we implement PipeTransform interface in our custom pipe class.
+
+	- Polymorphism
+		. Where one thing can be represented in many forms.
+		. For ex: a function with several parameters where some are mandatory and some are optional.
+			we can call this same function but with different parameters based on our requirement.
+
+
+Q what are the access modifiers in Angular/Typescript?
+	- Public, Private and protected.
+
+
+
+
+******************************************************************
+============================== HTML ==============================
+******************************************************************
+
+Q: Difference between inline and block elements?
+
+Q: Difference between div and span?
+
+Q: What are new elements in HTML5?	
+	- article
+	- header
+	- footer
+	- nav
+	- section
+
+Q: Difference between HTML and DOM?
+	- "DOM (Document Object Model): It�s a model of objects that represents structure of a document. Its essentially a tree of objects in memory.
+	- HTML: it�s a markup language that represents DOM.
+
+	Note: When browser parses an HTML document it creates a tree of objects in memory that is known as DOM."
+
+
+Q: Is it preferred to use HTML tables?
+A: No, flexbox is preferred.
+
+
+******************************************************************
+=========================== CSS/SASS =============================
+******************************************************************
+
+Q: How would you centerally align an element in CSS?
+A: With the help of Flexbox properties like 
+	- justify-content to horizontally align element
+	- align-items to vertically align the element
+
+Q: what is the difference between visibility hidden and display none?
+
+Q: What is the CSS position property? 
+
+Q: What is the difference between relative, and absolute positions properties?
+
+Q: What are fixed and sticky position properties in CSS?
+
+Q: Have you worked on any CSS framework?
+A: Yes, I have used Bootstrap framework. 
+	- It is an open source 
+	- It is supported by all major browsers like chorm, firefox, safari.
+	- It is lightweight
+	- It is very useful to implement responsive design with grid system where we have several class for various breakpoints.
+	- It increases the productivity of the developers as its very easy to use and a very good community support.
+	- There is a library called ng-bootstrap that is a superset of standard bootstrap, plus it also provides ready to use
+		components for angular applications like accordion, pagination etc.
+
+
+Q: How to override styles of a third party component?
+A: we can use "ng-deep" to override styles of a third party components.
+	::ng-deep {
+		
+	}
+	ex: Lets say I am using <ngb-toast> which ng-bootstrap component. And I want to override the background color, 
+	then I'll have to use ::ng-deep.
+
+
+
+Q: What are the features of SASS?
+A:	Mixin
+	Function
+	Variables
+	For loop
+	Partials  A.K.A modules (for modularity)
+	Nesting
+	Extend/Inheritance
+
+	
+
+
+******************************************************************
+====================== RxJs operators ============================
+******************************************************************
+
+Q: What is Reactive extensions (RxJS)?
+	- RxJS is library available for various platforms like javascript, scala, Java.
+	- It provides various things 
+		. Observable
+		. Subscription
+		. Subject
+		. BehaviorSubject
+
+
+Q: What are observables?
+A: 	- At core of Reactive Extensions a type is called "Observables". This represents Asynchronous Data Streams.
+	- It is like a stream that allows to pass 0 or multiple events where the callback is called for each event.
+
+
+
+Q: What was equivalent to observable in AngularJS?
+	- In Angular1 we used to have Promises.
+
+
+
+Q: Difference between observable and promise?
+	1. 
+	- promises were used in AngularJS. 
+	- Observables are introduced in Angular.
+	
+	2. 
+	- Promise handles a single event when async operation succeeds or fails. 
+	- Observable is like a stream and allows to pass 0 or more events where callback is called for each event.
+
+	3. 
+	- Promise uses "then" to handle the result or "catch" to handle the error. Ex: policyModel.getUsers().then(function (result) {....})
+	- Observables use "subscribe". Ex: this.sharedService.getUsers(id).subscribe();
+
+	4.
+	- Promises are eager. As soon as you create a promise (call a service) the code is executed even w/o "then". "then" is optional.
+	- Observables are lazy. Means nothing happens until you subscribe to them.
+
+	5. 
+	- With Promises, if we have to call a service multiple times then we will have to explicitely write the code to call it multiple times.
+	- With Observables, we can use .retry(n) operator to call the service n number of times w/o explicitely writing the code.
+
+
+
+	pipe():
+		- It is RxJs function that takes one or more operators and return an observable.
+  
+	of():
+		- It is used to transform a value into observable. For ex: of(true) will transform a boolean true to observable true.
+
+  	map():
+		- It is an RxJs operator used to transform emitted values by an observable by applying a function to each emitted item.
+  
+	tap():
+		- It returns an observable that is identical to source observable
+		- It does not modify the emitted stream values.
+		- It can be used to log values and debugging purposes.
+	
+	filter():
+		- It is used to filter emitted items by applying a function. For ex: filtering a truthy service response
+			filter(response => Boolean(response))
+	
+	take(count):
+		- it returns the first count values emitted by source observable.
+	
+	switchMap():
+		- As its name suggests, it cancels previous observable, uses the value from it and suppy that value to new observable. 
+		
+	combineLatest():
+		- It combines the multiple observables by taking most recent value from each input observable
+		  and emitting those values to the observer as a combined output
+		
+	catchError():
+		- It is an error handling operator to catch and handle the errors on the observable
+	
+	finalize():
+		- It will always be called when the observable is completed or returns an error. For ex: I want to reset loading flag.
+	
+	delay(timeValue):
+		- It waits for the specified time for each of the value from source observable and then it emits the value.
+	
+	debounceTime(timeValue):
+		- It waits for the specified time then it emits the LATEST value from source observable.
+		Ex:
+			name$.next('maahi');  // Statement 1
+			name$
+				.pipe(debounceTime(4000))
+				.subscribe(value => {
+					console.log('it will print the log 4 seconds after statement 1 has executed);
+				})
+	
+	distinctUntilChanged():
+		- It emits all items emitted by source observable that are distinct from previous item.
+	
+	takeUntil():
+		- It is used to automatically unsubscribe from an observable.
+
+	retry():
+		- If the service fails then it will retry calling the service. We can specify the number of times we want to retry.
+
+	mergeMap() / flatMap():
+    		- It combines two observables and execute in parallel and finish the operation once all observables are completed
+    		- If one request (observable) fails then it does not hamper the overall response
+    		- It is NOT guaranteed that order will be maintained in the response
+  
+	forkJoin():
+    		- It combines two observables and execute in parallel and finish the operation once all observables are completed
+    		- If one request fails then the whole response is failed.
+    		- It is guaranteed that order will be maintained in the response
+  
+	concatMap():
+    		- It combines two observables and execute one by one and finish the operation once all observables are completed
+    		- Response time is high comparative to mergeMap() and forkJoin() as it executes observables one by one.
+  
+
+Q: Difference between take(1) and first()?
+A: Both are same in a way that both emits the first emitted value. The difference is that if there is no
+	emitted value then take(1) will not give any error where first() will give an error.
+	
+
+Q: When to use takaUntil() and when to use subscription.unsubscribe()?
+		- takeUntil(): When there is a only one subscription in the component then its better to use takeUntil() as it
+			automatically subscribe from an observable
+		
+		- subscription.unsubscribe(): When there are multiple subscriptions in the component class then it is better to add
+			all those in subscription and unsubscribe at once together in ngOnDestroy().
+
+
+Q: Difference between Subject and BehaviorSubject?
+	Subject:
+	    . It is not required to provide an initial value (it does not hold a value)
+
+	BehaviorSubject:
+	    . It is required to provide an initial value (it holds a value)
+
+
+
+
+
+
+******************************************************************
+========================= ANGULAR ================================
+******************************************************************
+
+
+Q: What are angular LifeCycle hooks?
+
+
+Q: What is OnChanges interface?
+	- It has a method ngOnChanges(changes: SimpleChanges)
+	- inside this method.....changes.prop contains the old and the new value
+	- ngOnChanges(): This will only and only get called if the value of any of the input properties change.
+
+
+Q: What is Separation of concerns and how do you achieve that?
+	- When component is getting bigger then it's better to break that into smaller components or utility classes or service classes. 			Basically break a bigger chunk into smaller pieces. It improves readability, maintainability and code quality.					For ex: content component.
+
+
+Q: What are the pre-requisites to run an angular application?
+	- Node
+	- Npm (it comes bundled with Node)
+	- Typescript
+	- Angular CLI
+
+
+Q How to create a new angular project
+	> ng new property-central
+
+Q How to create a new component
+	ng generate component property-details
+	OR
+	ng g c property-details
+
+Q How to create a service class
+	ng generate service common-service
+	OR
+	ng g s common-service
+
+Q How to create a new directive
+	ng generate directive auto-grow
+	OR
+	ng g d auto-grow
+
+
+
+Q: Difference between "ng serve" and "npm start"?
+A: In "npm start", start is a script that is written under "scripts" object in package.json file. When we run this that it executes "ng serve" under the hood. Basically, "npm start" is better because in order to use "ng serve" you need to install angular CLI globally.
+
+
+Q: Difference between JIT and AOT compilation modes?
+A: First of all, application needs to be built first and then compiled.
+	- JIT: Just-in-time compilation: 
+	  . compiles the application in the browser at run time 
+	  . When the user hits the URL then they have to wait for the response as the JIT compiler inside the browser first compiles the code
+	  . vendor.bundle.js (generated by "ng build") has JIT compiler inside it
+		
+	- AOT: Ahead-of-time compilation: 
+	  . compiles the application at build time
+	  . Therefore home page of the application loads faster
+	  . Fewer asynchronous requests
+	  . Smaller angular download size
+	  . Detect template errors earlier during build time.
+	  . Better security: Since AOT compiles HTML templates and components into JS files long before they are served to the client (browser), the browser does not have to read any templates and hence less chances of injection attacks.
+
+
+Q: Diff between Dev build and Prod build (i.e. ng build --dev	VS  ng build --prod)
+	- Dev build:
+		. produces sourcemap
+		. by default it follows JIT mode of compilation
+	- Prod Build:
+		. Does not produce sourcemap
+		. It generate main.bundle.js. It has minified and uglified code. Minified code (removing excess whitespaces, comments etc) and uglified code (transforming code to short variables)
+
+
+Q: What is sourcemap
+	Sourcemap has the original typescript sourcecode, css code in uncompressed format. Developer can easily debug the application
+
+
+Q: Difference b/w ng build and ng serve
+	- ng build will build the application. i.e. Transpile the typescript code into javascript and will create bundles on the disk generally in "dist" folder
+	- ng serve will build the application in memory. It does not create any folder. It also runs the application on server. It also creates bundles that we can see in browser network tab.
+
+
+Q: For example you want to perform a task or execute some code after a defined time, how would you do that?
+A: setTimeout() method. Ex:
+
+ 	setTimeout(() => {
+		console.log('logic goes here');
+	}, 500);
+
+
+
+Q: Structure of Angular Project	?
+	- e2e folder: 
+		. This folder is created for end to end testing. (Protector, Cypress)
+
+	- node_modules folder: 
+		. This folder is generated when we install npm dependencies as mentioned in package.json file. When we create angular application using angular CLI (ng new <app-name>), then CLI automatically installs npm dependencies under the hood.
+		. This folder stores all third party libraries that our application may depend upon.
+		. This folder is purely for development and is not checked into git.
+		. When we compile our application, parts of this third party libraries are kept in a bundle and deployed. So, we are not gonna deploy this node_modules folder to server.
+
+	- src folder: 
+		. src folder contains actual source code of our application. It has many sub folders:
+		. \app folder has following files:
+			- app.component.scss
+			- app.component.html
+			- app.component.specs.ts
+			- app.component.ts
+			- app.module.ts
+			- app-routing.module.ts
+
+		Note: Every application at-least has one module (app.module.ts) and one component (app.component).
+
+		. \assets folder stores static assets like any image file, icon etc.
+		. \environment folder stores configuration settings for different environments. It has following two files:
+			- environment.ts (for localhost)
+			- environment.prod.ts  (for PRODCUTION server)
+			- environment.dev.ts (for Development server)
+			- environment.uat.ts (for UAT server)
+
+		Note: src folder contains several files as well as below:	
+			- index.html (starting point of application)
+			- main.ts (to bootstrap the app module)
+			- styles.scss (it is a parent style file. It can be used to include bootstrap in the application)
+
+	Note: Root level files (IMP):
+		- .gitignore:
+			. Here we list all the files/folders that are not required to be checked-in into git.
+		- angular.json: 
+			. This file mentions various things related to application for ex: project type, build path, assets path, styles source, 				configuration files like environment files for different environments like develop, UAT, production etc, whether sourceMap should be visible 		in the browser or not. Component prefix, lint configuration
+		- jest.config.js: This was created manually.
+			. configuration for Jest like coverage threshold
+		- readme.md:
+			. Helpful information to run the application.
+		- tsconfig: 
+			. There are three separate tsconfig files for app and spec.
+			. it mentions typescript configuration settings like "compilerOptions" and "files to be included" etc.
+		- tslint.json:
+			. We can mentione any linting (code quality) configuration settings like 
+				* single or double quotes,
+				* semicolon (required or not),
+				* component selector settings like kebab case,
+				* Indentation, 
+				* max line length (like 120 characters)
+
+
+Q: What are different sections in app.module.ts (root module of the application)?
+	- Imports : It lists all modules
+	- Declarations: It lists all components, directives, pipes.
+	- Providers: It lists all services (OR we can Provide service as root, then we dont need to mention in providers array)
+	- Bootstrap: It list the starting component of the application for ex: appComponent.
+
+
+
+Q: what is Webpack and what does it do?
+	- Angular CLI uses a tool called Webpack. It is a module bundler. It compiles all scripts (.ts) and stylesheets (.css) and combines them in a bundle and minifies that bundle. It generates following bundles and load them from server into a browser:
+1. polyfills.js: It includes all the scripts to fill the gap b/w the version of javascript that angular needs and the version of javascript supported by most browsers.
+
+2. main.js: It includes all sourcecode of our application.
+
+3. styles.js: It includes all stylesheets of our application. Notice that stylesheets are stored in a javascript bundle.
+
+4. vendor.js: It includes all third party libraries of our application and JIT compiler.
+
+5. runtime.js: Whenever, you change any code (ts or style), Angular CLI compiles the code and refreshes all these bundles.
+
+Note: After running the application (ng serve) > right click > view page source > it will show index.html markup. It will show 5 different script tags with 5 respective bundles as mentioned above. However, in source code index.html file these script tags are not there. it is generated dynamically.
+
+
+Q: What is Hot Module Reloading (HMR)?
+A: It is a feature of Webpack. Whenever, one of the source files is modified, webpack automatically refreshes the browser.
+
+
+Q: Can we use multiple pipes in angular? 
+A: Yes
+
+
+Q: Which compiler is used in Angular?
+A: Ngc (it extends the capabilities of a typescript compiler (tsc) that transpiles Typescript to Javascript).
+
+
+Q: What is callback hell?
+A: 
+"nested call backs.
+
+a(function(r){
+      b(r, function(s){
+            c(s, function(t){
+                  d(t, function(u){
+                  })
+            })
+      })
+})
+
+Above is an example of callback hell. Programs written in this way are hard to understand and maintain.  That's where reactive extensions come into picture.
+
+
+
+Q: Which image type do you prefer and where do you keep all images?
+A: It is preferred to use ".svg" files rather than ".png" or ".jpg" because ".svg" files are light weight and does not impact app performance much. Images are kept inside assets folder.
+
+
+Q: What is data binding and what are the different types of data bindings?
+
+
+Q: How component communication can be done? OR how to share data b/w components?
+
+
+Q: What are different types of decorators in Angular?
+
+
+Q: What is your fav topic in Angular?
+	- Data Binding, Sharing data b/w components
+
+
+
+Q: what is dependency injection? give me an example of how you can use it?
+
+
+Q: What is ng-template, ng-container, ng-content?
+
+
+Q: What is async pipe, why do we use it?
+	- Async pipe is used to subscribe to an observable and returns the latest value emitted by observable. i.e. we don't need to 
+	subscribe explicitly.
+	- When the component gets destroyed, the async pipe unsubscribes automatically to avoid any memory leaks. i.e. we don't need to
+	unsubscribe explicitly.
+
+
+i18n (internationalization)
+
+
+Q: What do you understand by a11y (accessibility) requirements?
+A: 	
+	- It means if a website is accessible to everyone including visually impaired people, people with less motor skills like shaky hands. 	- Such people should be able to access a website.
+	- There are some HTML elements and attributes for aria which we can use to implement accessibility requirements. 
+		For ex: <aria-label>, aria-hidden = "true", aria-required = "true"
+	- there are bootstrap classes also for accessibility. For ex: sr-only
+
+	ARIA = accessible rich internet application
+	- No ARIA is better than a bad ARIA.
+
+	- There are some browser tools to test accessibility requirements
+		For ex: Wave, Axe etc.
+
+
+
+	====== Routing =======
+Q: What is Angular router?
+
+Q: Why it is important to keep a proper order of routes ?
+
+Q: What is routes matching strategy? 
+	"pathMatch"
+	- prefix
+	- full
+
+Q: What is router-outlet ?
+
+Q: Diff between RouterModule.forRoot() and RouterModule.forChild()?
+
+Q: What are nesting routes?
+
+Q: What is Lazy loading of feature modules ? 
+
+Q: What is a route guard?
+A: These are interfaces provided by Angular that allow us to control accessibility of a route based on conditions provided in a service class that implements those interfaces. For ex: Usually the normal user will start navigation of the application through sign-in page and then navigate to different menus/screens. So the authentication is already done on sign in page like whether user is eligible or not. But an authorized user may directly hit the URL of a particular screen and then the use of route guards come into picture. We can call a service to check eligibility of the user if not eligible then we could redirect then to sign-in page. There are various interfaces like 
+	- CanActivate: 	checks the route access
+	- CanActivateChild: 	checks the child route access. For ex: the requirement is such that we don't need a guard on root level but children components must have guard then one option is to put 'CanActivate' guard on all children routes which is tedious and other option is to use 'CanActivateChild' guard at once. 
+	- CanDeactivate:	Checks for any unsaved changes and if so then deactivates the route. For ex: there is a form where user is supposed to enter some data and user tries to navigate away to a different route. In this scenario we can use CanDeactivate guard which will deactivate the route and we can then open a dialog box to take user confirmation.
+	- CanLoad (TRY THIS): 		This guard is used with lazy loaded modules to prevent unauthorized access to any of the routes of the module and prevents the module from being downloaded and hence the user cannot see source code in developer tools of the browser.
+	- Resolve (TRY THIS): 		This is also known as 'Angular Resolver'. This allows us to load data before navigating to the route. There are two ways to load the data (1) navigate to the component and then call a service from ngOnInit life cycle hook to fetch data and show loading indicator while data is being fetched. (2) Use 'Resolve' guard to prefetch the data before navigating to the route. Hence the component is rendered along with data.
+
+
+
+
+	=========== FORMS ===========
+Q: What are different types of forms in Angular?
+A: Two types of forms in Angular2
+	1) Template driven forms: 
+	    . To create simple forms
+	    . most of the work is done in HTML 
+	    . Some standard HTML5 validations like. Not full control over form validation
+	        required
+	        maxlength
+	        min
+	        max
+	        pattern
+	2) Reactive Forms (Model driven forms): 
+	   . To create more complex forms but full control over form validations
+	   . most of the work is done in component class, therefore, easy to unit test 
+	   . complex validations can be done
+	   . Custom validators can be created
+	   . Form controls can be created dynamically  ?? (TODO)
+
+
+Q: What is template reference variable?
+A: It is defined with # (hash character). For ex: <ng-template>, @ViewChild
+
+
+Q: What are HTML5 built-in validators (template driven validators)?
+A:	required
+	maxlength
+	min
+	max
+	pattern	
+
+
+Q: What are various validation properties OR states of form and form controls?
+A: These validation properties are available at FORM level as well as at each individual CONTROL level.
+	. touched: if the field has been touched
+	. untouched: if the field has been untouched
+
+	. dirty: value has been changed
+	. pristine: value has not been changed
+
+	. valid: if the field is valid or not
+	. invalid: if the field is invalid or not
+
+	. errors: validation errors
+	. value: the value "
+
+
+Q: Difference between setValue() and patchValue() methods?
+
+
+Q: What is FormBuilder class?
+A: It is a service class which needs to to injected in our component class. It has few methods like group(), array()
+
+
+Q: What are various Built-in validators in reactive Forms?
+A: 	required
+	minLength
+	maxLength
+	pattern : regEx pattern
+	email
+
+
+Q: How to add validators dynamically?
+A: employeeForm.get('fullName').setValidators([Validators.required])
+
+
+Q: How to remove all validators dynamically?
+A: employeeForm.get('fullName').clearValidators();
+
+
+Q: What is formArray Class?
+A: It can contain an array of :
+	FormControls
+	FormGroups
+	Nested FormArrays
+
+
+Q: What are the methods in formArray?
+A: 
+	push(): inserts the control at the end of the array
+	insert(): inserts the control at the specified index in the array
+	removeAt(): Removes the control at the specified index in the array
+	setControl(): Replace an existing control at the specified index
+	at(): return the control the specified index in the array
+
+
+Q: How to generate formGroup and formControls dynamically?
+A: we can generate these by using group() method of formBuilder Class and we can define all form controls, their default values, and validators if any.
+
+
+Q: How to do validations in angular?
+A: we can do validations in Angular using reactive forms. 
+
+
+Q: How to detect if any changes in FormGroup (ex: employeeForm) and any control inside form?
+A: we can subscribe to "valueChanges" property. 
+  Ex: For detecting any changes in form: 
+  this.myForm.valueChanges.subscribe(val => {
+    console.log(val.name);
+    console.log(val.email);
+    console.log(val.phone);    
+  });
+
+  Ex: for detecting any changes in a form control:
+  this.myForm.get('name').valueChanges.subscribe(val => {
+    console.log(val);
+  });
+
+
+
+
+
+******************************************************************
+=========================== JEST =================================
+******************************************************************
+
+Q: What is JEST?
+A: It is a Javascript unit testing framework developed by Facebook to test individual units. It provides a lot of APIs to perform unit testing of angular components, services, directives, pipes etc.
+
+
+Q: what is the use of createSpyObj()?
+A: 	- We use this to mock any service methods. For ex: commonService.getStudents() methods. And we can also return a mock value from this method by using "mockReturnValue()" function.
+	- It does not execute the actual method, rather it just spy on it.
+
+
+Q: What is the purpose of mocking in unit testing?
+A: 	- It is a process to simulate the same behaviour as actual functions or objects. For ex: If we need to unit test a service method, then we can create a spy object using createSpyObj() function by specifying service class name and method name. And if want to return a mock value from the service method then we can use "mockReturnValue()" function.
+		
+	- We can also mock objects to simulate the actual data. For ex: We can mock the response of REST APIs because we don't actually call the service. we just mock the response. We can do this by using mockReturnValue(of()).
+
+			mockService = createSpyObj('CommonService', ['getStudents']);
+			mockService.getStudents.mockReturnValue(of(mockData));
+
+			const mockSevice: any = {
+				getStudents: jest.fn().mockReturnValue(of(mockData))
+			}
+
+
+Q: What is the use of mockReturnValue()?
+A: This is a very useful function to mock the return value of a method. It can be used with:
+	- jest.spyOn()
+	- jest.fn()
+	- createSpyObj()
+
+
+Q: What is spyOn() method used for?
+A: we can use spyOn() method to test if a function has been called or not. For ex:
+	jest.spyOn(component, 'computeSum');
+
+
+Q: how to spy on a method?
+A: 	- jest.spyOn(component, 'computeSum');
+	- It does not execute the actual method, rather it just spy on it.
+
+
+Q: How to mock a method?
+A: 	mockService: any = {
+		getStudents(): jest.fn()
+	}
+	- It does not execute the actual method, rather it just spy on it.
+
+
+Q: How would you test if a method has been called or not?
+A: 	- We can use .toHaveBeenCalledTimes() function to test if the method has been called and how many times.
+	- In order to test that we need to either spy on the method or mock it. jest.spyOn() or jest.fn()
+		ex:
+		jest.spyOn(component, 'computeSum');
+		expect(component.computeSum).toHaveBeenCalled() or .toHaveBeenCalledTimes(1); 
+
+
+Q: What are the assertion functions ?  --> expect(component).toBeTruthy();
+A: 	- .toBeTruthy()
+	- .toBeFalsy()
+	- .toBe()
+	- .toEqual()
+	- .toHaveBeenCalled()
+	- .toHaveBeenCalledTimes()
+
+
+Q: what are the examples of asynchronous operations?
+A: Observables, setTimeout()
+
+
+Q: How to test observable methods? OR How to test methods that returns observable?
+A: Observables are asynchronous operations. So in order to test them, we need to use fakeAsync() to wrap the testable function in async Zone and write our assertions there. We need to use flush() method to move the clock forward to simulate the completion of asynchronous operation.
+
+	it('should call commonService.getStudents', fakeAsync(() => {
+		component.ngOnInit();
+		flush();
+		expect();
+	}));
+
+
+Q: What is the use of flush()?
+A: 	- It is used to perform unit testing of asynchronous operations like observables or setTimeout().
+	- It basically moves the clock forward to simulate the completion of asynchronous operation.
+
+
+Q: What is the difference between flush() and tick() ?
+A: 	- tick(time in ms): It moves the clock forward with specified time.
+	- flush(): It moves the clock forward to simulate the completion of asynchronous operation.
+
+
+Q: Have you done white box testing?
+A: Yes, I know about white box testing. So, basically, it is a technique to examine internal design structure. For ex: If there is a function that has so many if else loops, then we can unit test for each logical branch by mocking data. This is an example of white box testing of a function. And in this way we can improve test coverage for branches as well.
+
+
+Q: What is a good code coverage percentage?
+A: I think 80% is a good coverage. But, Jest is pretty easy so we can also aim for 85-90%.
+	- Statements 	--> total lines
+	- Branches  		--> if, else
+	- Functions		--> computeSum()
+	- Lines
+
+
+
+
+
+******************************************************************
+====================== GIT =======================================
+******************************************************************
+
+Q: Create a new branch off another branch (develop):
+	git checkout -b feature/JIRA-1234 origin/develop
+
+if you are already on develop branch
+	git checkout -b feature/JIRA-1234
+
+
+Q: Pull changes from develop to local branch:
+	git merge origin/develop
+
+
+Q: Stage files
+	git add -A       [new, updated and deleted files]
+	
+
+Q: Un-stage all changes
+	git reset
+
+
+Q: Discard all local changes stages/un-staged permanently:
+	git reset --hard
+
+
+Q: Commit changes into feature branch:
+	git commit -m "comments comments"
+
+
+Q: push code
+	git push
+
+
+
+Q: Cherry pick from another commit: It merges changes from another commit
+	Syntax:	git cherry-pick <commit Sha>
+	Example:	git cherry-pick 5a9768bb
+
+
+
+
+Q: Difference between git Fork, got Clone?
+A:  	Git Clone:
+	- It creates a linked copy of the original git repository.
+	- It is synchronized with original git repo.
+	- In a project where developers work in a team, we usually do git clone.
+
+	Fork: 
+	- It creates a completely independent copy of the git repository. 
+	- It not synchronized with original git repo.
+
+
+Q: Do you know about CI/CD pipelines?
+A: 
+
+
+
+
+
+=========== For Sr. Developer level =====
+Q: How to implement error handling in angular app?
+
+
+Q: Can we do dev build and not generate sourcemap? [YES]
+	- ng serve --dev -sm false
+
+
+Q: Can we do prod build and generate sourcemap? [YES]
+	- ng serve --prod -sm true
+
+
+Q: How to enable PROD build?
+
+
+Q: What is "HttpInterceptorService" and when do we need to use it?
+	- Read on Google and also refer below:
+	- Refer App.component.ts > "this.httpInterceptor.request().addInterceptor" ..... Keep watching whenever an API is called then this gets called by itself
+	- Refer App.component.ts > "this.httpInterceptor.response().addInterceptor".....  Keep watching whenever an API response is received then this gets called by itself 
+
+
+
+. What is singleton pattern? how do you implement with dependency injection?
+	- Singleton pattern is when multiple components are dependent upon a common dependent class and a single instance of that common class is used by multiple components.
+	- For example: AppModule as multiple components and all those are dependent upon a common service class. We can register that common service class inside AppModule. But it will have a single instance in memory to be shared across multiple modules
+
+
+.  What is constructor in typescript how its different from other programming languages like Java?
+	- In typescript, the name of constructor function is constructor() unlike java where its the name of class
+	- In typescript, there can be only one constructor function in a class unlike there can be three types (default, parameterized and Super constructor)
+
+
+Q: How would you show different error messages based on different HTTP errors returned by service responses?
+A: We can create a common "ErrorMessageComponent" to show different error messages. We can create a BehaviorSubject for example "httpError" and whenever an error is returned by service response we can insert that error in this BehaviorSubject in catchError() block. And the template we can call our common "ErrorMessageComponent" with input property that will have the httpError code. and inside the common component we can display different error messages based on HTTP error code.
+
+
+
