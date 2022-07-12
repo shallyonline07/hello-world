@@ -1,161 +1,4 @@
-TODO: 
-
-Router.Navigate
-ActivatedRoute
-
-
-
-
-
-MSW
-
-
-
-Q: What are the things you look for in a code review?
-A: I look for various things like Quality, maintainability, readability, resiliency.
-	- Quality: 
-		. No calling of component functions on template, rather use pipes
-	- Maintainability: 
-		. Dissect a big function into smaller functions to better unit test those
-		. Use of <ng-template> to write HTML code one time and call it by passing context to cater to different requirements.
-	- Readability: 
-		. Better naming conventions 
-
-
-
-Q: What are security features in Angular? OR how will you secure your angular application?
-A: 	1. XSS: Angular has a built-in protection mechanism against web app vulnerabilities and attacks such as Cross site scripting attacks (XSS).
-	  - in XSS, attackers can inject a malicious code into web pages. And that code can steal imp info such as user credentials. These kinds of attacks mostly happen through querystring. So if you want to use querystring then make sure the critical values like SIN, SSN, SRF or any such information is encrypted. So that it is not understandable by attackers or any user per se.
-    	  - For ex: an attacker might enter some script tag in inout field. Basically, any malicious code should not enter the DOM. 
-	  - By default Angular treats all values as untrusted when the values are inserted into DOM through interpolation or attribute etc. Angular sanitizes (removes) and escapes untrusted values before rendering. 
-	  - In Angular, XSS related security is defined in "BrowserModule" of platform-browser npm package.
-
-	2. AOT Compilation: From version 10 onwards, Angular provides AOT compilation feature by default.
-	  - It prevents security vulnerabilities called "template injection". Since AOT compiles HTML templates and components into JS files long before they are served to the client (browser), the browser does not have to read any templates and hence less chances of injection attacks. And improves performance as well. 
-	  - Therefore, we should always use AOT template compiler.
-
-	3. Route guards: These are interfaces provided by Angular that allow us to control accessibility of a route based on conditions provided in a service class that implements those interfaces. For ex: Usually the normal user will start navigation of the application through sign-in page and then navigate to different menus/screens. So the authentication is already done on sign in page like whether user is eligible or not. But an authorized user may directly hit the URL of a particular screen and then the use of route guards come into picture. We can call a service to check eligibility of the user if not eligible then we could redirect then to sign-in page.
-	  - There are various interfaces like CanActivate, CanActivateChild, CanDeactivate, CanLoad, Resolve
-		
-	4. Do not use DOM APIs such as elementRef, document etc. Angular does not have control over these DOM APIs so it does not have protection against security vulnerability. 
-
-	5. Always use up-to-date angular libraries as they have fixes for security defects found in earlier releases.
-
-	6. Validate user submitted data on server side code. Because attackers can use cross site scripting (XSS) methods to manipulate critical data if validated at client side. Therefore, validating user data at service side prevents app from this kind of attack.
-
-
-Q: what is the monorepo? Have you worked on a monorepo?
-A: A monorepo is a single git repo that holds source code of multiple applications and libraries
-
-
-Q: What is nx framework? What are its benefits?
-A: Nx framework builds a project graph by analyzing your workspace and then next time onwards it rebuild only what is necessary and does not build anything twice. For ex: I raised a PR with 2 files and when I commit my code then NX will only run linting on these 2 files that got changed rather than on entire project and similarly for jest unit test cases which improves overall build time. 
-
-
-Q: what is npx?
-A: It stands for "node package execute". It is an npm package runner that can directly execute the npm package from npm registry without even installing that package.
-
-
-Q: What is HttpIntercepter?
-A: 	- It is an Angular interface which can be implemented in an Angular service. The method name is 'intercept()'. It sits between application and backend. When application makes an Http request then interceptor caches the request before it is sent to the backend. By intercepting requests we will get access to request headers and body. This will enable us to transform the request before sending it to server. 
-	- Similarly when the request comes back from backend the interceptor can transform it before passing it to application.
-	- The main benefit of HttpInterceptor is to add authorization header to every request.
-
-
-Q: How to see stable and alpha version of an npm package?
-A: npm show @bbp/approvals-widget
-
-
-Q: How to build and publish an npm library?
-A: 	1. ng build <lib name> .... 	ng build tag-manager-service
-	1. cd to the dist folder .... 	cd dist/tag-manager-service
-	2. npm publish -- registry <Registry-URL>
-
-
-Q: How to publish alpha version of an npm package?
-A: npm publish -- tag alpha --registry <registry-url>
-
-
-Q: What are schematics? default schematics? Can we have multiple schematics?
-A: 	- Schematics can be used to quickly generate an angular component, library, service, directive etc.
-	- Angular application comes with default schematics i.e. @schematics/angular. 
-	For ex:
-		. Create component: @schematics/angular:component activity-log
-		. Create service: @schematics/angular:service transactions
-		. create directive: @schematics/angular:directive auto-grow
-	- Yes, we can have multiple schematics in an angular application. For ex: default angular schematics, @nrwl/angular schematics, any custom schematics
-		
-
-Q: Annotation vs decorator (@component, @pipe, @injectable)
-A: Annotations are used are used for metadata. But Decorators are used to identify whether its a ngModule, component, service, pipe, directive etc.
-
-
-Q: What are micro frontends?
-A: It is basically a design approach in which a front-end app is decomposed into individual multiple semi-independent "micorapps" working together. There are many benefits of using microfrontends.
-	- Technology agnostic: i.e. each each team can do development in their own tech stack without worrying about using same technology. 
-	- Isolate team code and build independent apps and not to rely on shared state.
-
-
-Q: What is Injection Token?
-A: There are situations where we need to use environment variables like a URL, into components or services then there are two options we could use those environment variables into our components or service
-	(1) Import them directly, which is a bad practice as app level code should be separated from libs. So, we will avoid this approach.
-	(2) 2nd and a recommended approach is to use Injection tokens and by using that we can easily inject environment variable into our components or services without importing environment files. In order to do that we need to provide that injection token in 'providers[]' array in app.module with the value from environment variable and then Inject the injection token using @Inject decorator as a dependency in the constructor of the component.
-	OR you can use ModuleWithProviders (as mentioned below)
-
-
-Q: what is ModuleWithProviders?
-A: Sometimes, there are situations when we have individual modules in your big app then instead of having a plain module, we could use 'ModuleWithProviders' and have a 'providers[]' array where we can provide Injection Token name and value coming from app.module.
-
-
-Q: What is APP_INITIALIZER and when do you want to use it?
-A: 	- This is a built in Injection Token provided by Angular. We mention this in 'providers[]' array in app.module and we can use 'useFactory' to provide a function to be executed when app is initialized. We can also mention the dependencies using 'deps' keyword. If there are multiple dependencies then we can mention 'multi' attribute = true.
-	- We want to use APP_INITIALIZER when we want to execute a function when the application loads. So basically, this function will be executed even before app.component code.
-
-
-
-======= NgRx (State Management) =========
-Q: Describe NgRx overall or a brief understanding?
-A: 	- NgRx is a state management javascript library that is used to store application state in client and utilizing it from all over the application.
-	- State is a single javascript object which is immutable i.e. there is no direct store API to change the state. State can be changed by Reducer fn.
-	- State is defined in reducer class as an interface and also provide a an initialState with some initial values.
-	- There are mainly 5 components in NgRx namely:
-	(1) Actions
-	(2) Reducers
-	(3) Selectors
-	(4) Facade
-	(5) Effects
-	Then explain the diagram.
-
-
-Q: What are actions?
-A: These are the unique events of the application with optional 'props' property to provide any payload data when a particular action is dispatched.
-
-
-Q: What are reducers?
-A: 	- Reducers are pure functions and are responsible for changing the state based on provided action. For ex: 
-	- If we need to load client data then we need to dispatch a corresponding action like 'loadClientData' and reducer function will update the state by turning the loading flag to true so the user could see a loading indicator while data is being fetched from backend API. 
-	- Similarly, when data is successfully received from backend API then we could dispatch another action like 'loadClientSuccess' and the corresponding reducer function will update the status by updating data property and loading flag to false. So that loading indicator is hidden and user could actually see the on the page.
-
-
-Q: What are selectors?
-A: 	- Selectors are pure functions. 
-	- When we define a selector then we mention two functions like "Mapping Function" that holds complete state and "Projector Function" that returns slice of data. For ex: a selector with name "selectClientData" may return client data from the store as one of the slices of the entire state. On the other hand, selector with name "selectClientLoading" may return loading indicator (i.e. a flag value) as one of the slices of entire state.
-
-
-Q: What is facade?
-A: 	- Facade is an angular service injectable at root. It works as an intercept between application components and rest of the NgRx files. In other words, if a component needs to dispatch an action then it may call a user defined function written inside facade which in turns dispatch an action.
-	- We can write observables here that return slices of data using selectors. For ex: We can write clientData$ = store.select(selectClientData) and we can use this observable from anywhere in the app.
-
-
-Q: What are effects?
-A: 	- We need ngrx library to define effects. Effects are angular service injectable at root. 
-	- Effects are used to communicate with backend services to execute HTTP requests based on the action dispatched.
-	- Effect returns a new action. For ex: Based on the state of the service response i.e. 200 or 500 (or any other error) it may dispatch a corresponding action like success action or error action respectively.
-
-
-Q:What is the use of forFeature()?
-A: forFeature() is used to configure storeModule and effectsModule in the Imports array of ngModule class.
-
+TODO:
 
 
 
@@ -165,27 +8,44 @@ A: forFeature() is used to configure storeModule and effectsModule in the Import
 =============== Angular Interview Questions ======================
 ******************************************************************
 
-Q: Please let me know something about yourself.
-A: Thanks for the opportunity to introduce myself. I did masters in computers applications. I've worked on various implementations in several business domains including Real estate, Property Tax, Insurance and most recently and current one is banking domain. I am currently working as a lead front end developer in OMNI RBC. I joined this project back in Feb 2019 when it was started so I am working here from beginning of the project. We're developing business banking app and my squad is responsible of delivering various features like  
-		. transactions of various accounts like BDA, CC etc. 
-		. Export feature (TODO: how)
-		. Transaction search module
-		. Approvals dashboard: to show various approval work items related to payments or MCA changes or Access level changes in P&P module.
-		. Activity Log dashboard: To show history of activities(work items) from approvals, people and permissions.
-		. Admin console to onboard business clients.
-		. Highcharts implementation: That gave clients the ability to see periodical revenues and it was a critical milestone for business.
+Q: Please let me know something about yourself and your experience.
+A: Thanks for giving the opportunity to introduce myself. I did masters in computers applications quite long back. During my work experience I've worked on various implementations in several business domains including Real estate, Property Tax, Insurance and most recently and current one is banking domain. I am currently working as a lead front end developer in OMNI RBC as you might know. I joined this project back in Feb 2019 when the journey/project was started. We're developing business banking app part of RBD-EDGE journey that has 6 squads and my squad is responsible of delivering various features like  
+	- transactions of various accounts like BDA, CC etc. 
+	- Export pdf/csv feature (TODO: how)
+		. Backend response is a "blob" and on FE, we processes this blob and using base64 and by creating dataURL using this blob and an anchor tag we download this file.
+	- Transaction search feature for multiple accounts
+	- Accounts Statements
+	- Approvals dashboard: to show various approval work items related to payments or master client agreement (MCA) changes or Access level changes in P&P module.
+	- Activity Log dashboard: To show history of activities(work items) from approvals, people and permissions.
+	- Admin console to onboard business clients.
+	- Highcharts implementation: That gave clients the ability to see periodical revenues and it was a critical milestone for business.
 
-Though I have worked on implementation of all of these features but Activity Log, Admin console, and Highcharts integration I implemented frontend part single handedly.
+	And there are some common things that each squad is responsible for:
+	- Global Nav
+	- language changes
+
+Though I have been involved on the implementation of all of these features but there are several features that I implemented single handedly from the frontend side like Activity Log, Admin console, and Highcharts integration and setup of JEST.
 
 My day to day responsibilities include:
 	- Frontend development
-	- Reviewing PRs
+	- Reviewing PRs across different squads of the journey.
 	- Working with Product owner, BA, content and UX designers.
-	- Attending weekly Tech leadership committee meetings (I represent my squad in these TLC meetings)
+	- Participating in weekly Tech leadership committee meetings (I represent my squad in these TLC meetings)
 		. Discuss on tech debts items, tech upgrades, cypress (e2e testing) implementation, code coverage stuff like that.
 	- Participating in agile scrum ceremonies like daily standup, sprint planning, backlog refinements, sprint demos at the end of the sprint, & retros.
 	- I also take the responsibility of a scrum master as we don't have a dedicated one in our squad. We have rotating scrum master policy :-)
-	- And mentoring co-ops and providing tech help to other devs on the squad, if needed.
+	- And mentoring co-ops and providing tech help to other jr and sr devs, if needed.
+
+
+Q: What are the things you look for in a code review?
+A: I look for various things like Quality, maintainability, readability, resiliency.
+	- Quality: 
+		. No calling of component functions on template, rather use pipes or BehaviorSubjects.
+	- Maintainability: 
+		. Dissect a big function into smaller functions to better unit test those
+		. Use of <ng-template> repeated HTML code and call it by passing context to cater to different requirements.
+	- Readability: 
+		. Better naming conventions 
 
 
 Q: Why do you want to work for Capco?
@@ -200,13 +60,8 @@ Q: What is your greatest weakness?
 A: Everyone has weakness and I am no different. Sometimes I tend to get little extra workaholic. I know it is not good for a better work life balance. I am improving on this aspect. 
 
 
-
-
-Angular:
-	- Angular has its own CLI tools. You can create an angular app very easily with CLI tools. Angular creates a Boilerplate and basic app structure. 
-	- In angular all files related to a components are kept inside a folder. For ex: html, scss, component, spec file, whereas in angularJS these files are kept at different locations like all HTMLs are kept inside view folder and all controllers are kept inside controller folder and so on.
-	- There are lot of VsCode extensions available for angular for ex: JestRunner, Auto-import.  (AngularJS code editor = Sublime Text)
-
+Q: Where do you see yourself in next 5 years?
+A: For now I am just enjoying my current role of lead frontend developer. But, I want to do native mobile app development if I get an opportunity. Yes, I want to continue doing development and leading a mix developers like Jr, Sr and co-ops.
 
 
 
@@ -245,7 +100,7 @@ A: I don't recall of any such instance.
 [*]
 Q: What is the javascript closures?
 A: It is a function inside another function. We use closures very frequently in angular. For ex: array map() function, forEach() function, subscribing to observables. In all of these we use callback function. So, basically a function within another function.
-
+	- It's hard to development in ES6 Javascript without javascript closures as we frequently use arrow functions.
 
 [*]
 Q: Difference between typescript and javascript?
@@ -272,12 +127,13 @@ Q: Difference between typescript and javascript?
 Q: What is the difference between HTTP methods?
 A: 	- get(): 	This is used to request data from a specified resource(data).
 	- Post(): 	This is used to create/update the resource(data). Responses cannot be cached.
-	- Put():	Same as post. Responses can be cached.
+	- Put():	It replaces original resource with new resource. Responses can be cached.
 	- Patch(): 	This is used to modify the resource (data).
 	- Delete();	This is used to delete a specified resource (data).
-[*]
+
+
 Q: How do you integrate Restful API's with Angular?
-A: 	- We can create a custom service class
+A: 	- We can create a custom service class or NgRx effects.
 	- And we need to import httpClient from angular/common/http package
 	- And we do dependency injection in the constructor
 
@@ -484,6 +340,10 @@ Q: Difference between HTML and DOM?
 Q: Is it preferred to use HTML tables?
 A: No, flexbox is preferred.
 
+
+Q: Diff between InnerHTML and innerText?
+A: 	- innerHTML returns only the text content whereas
+	- innerText returns HTML element itself as a string. The code for entire HTML element.
 
 ******************************************************************
 =========================== CSS/SASS =============================
@@ -695,18 +555,54 @@ A: Cold Observable:
     	- Ex: all subjects like Subject, BehaviorSubject, shareReplay, Wife
 
 
+
+
 ******************************************************************
 ========================= ANGULAR ================================
 ******************************************************************
 
+* Q: What are angular LifeCycle hooks?
+A:  - constructor: It is not life cycle hook, but it is executed first.
+        We should not write any code in this method. Rather we should use ngOnInit() method.
+    Below life cycle hooks are executed in mentioned sequence:
+    - ngOnChanges(): It is only called when there is a change in the value of @Input property in the component
+    - ngOnInit(); It is the most used life cycle hook as we starts code from this method.
+    - ngDoCheck()
+    - ngAfterContentInit()
+    - ngAfterContentChecked()
+    - ngAfterViewInit(): It is mostly used when we have @ViewChild.
+        In @ViewChild we can inject a component or DOM element through template reference variable (#)
+        and the value is only available in ngAfterViewInit() not before that.
+    - ngAfterViewChecked()
+    - ngOnDestroy(): It is mostly used to unsubscribe any subscriptions.
 
-Q: What are angular LifeCycle hooks?
 
-
-Q: What is OnChanges interface?
+* Q: What is OnChanges interface?
 	- It has a method ngOnChanges(changes: SimpleChanges)
 	- inside this method.....changes.prop contains the old and the new value
 	- ngOnChanges(): This will only and only get called if the value of any of the input properties change.
+
+
+Q: What are security features in Angular? OR how will you secure your angular application?
+A: 	1. XSS: Angular has a built-in protection mechanism against web app vulnerabilities and attacks such as Cross site scripting attacks (XSS).
+	  - in XSS, attackers can inject a malicious code into web pages. And that code can steal imp info such as user credentials. These kinds of attacks mostly happen through querystring. So if you want to use querystring then make sure the critical values like SIN, SSN, SRF or any such information is encrypted. So that it is not understandable by attackers or any user per se.
+    	  - For ex: an attacker might enter some script tag in inout field. Basically, any malicious code should not enter the DOM. 
+	  - By default Angular treats all values as untrusted when the values are inserted into DOM through interpolation or attribute etc. Angular sanitizes (removes) and escapes untrusted values before rendering. 
+	  - In Angular, XSS related security is defined in "BrowserModule" of platform-browser npm package.
+
+	2. AOT Compilation: From version 10 onwards, Angular provides AOT compilation feature by default.
+	  - It prevents security vulnerabilities called "template injection". Since AOT compiles HTML templates and components into JS files long before they are served to the client (browser), the browser does not have to read any templates and hence less chances of injection attacks. And improves performance as well. 
+	  - Therefore, we should always use AOT template compiler.
+
+	3. Route guards: These are interfaces provided by Angular that allow us to control accessibility of a route based on conditions provided in a service class that implements those interfaces. For ex: Usually the normal user will start navigation of the application through sign-in page and then navigate to different menus/screens. So the authentication is already done on sign in page like whether user is eligible or not. But an authorized user may directly hit the URL of a particular screen and then the use of route guards come into picture. We can call a service to check eligibility of the user if not eligible then we could redirect then to sign-in page.
+	  - There are various interfaces like CanActivate, CanActivateChild, CanDeactivate, CanLoad, Resolve
+		
+	4. Do not use DOM APIs such as elementRef, document etc. Angular does not have control over these DOM APIs so it does not have protection against security vulnerability. 
+
+	5. Always use up-to-date angular libraries as they have fixes for security defects found in earlier releases.
+
+	6. Validate user submitted data on server side code. Because attackers can use cross site scripting (XSS) methods to manipulate critical data if validated at client side. Therefore, validating user data at service side prevents app from this kind of attack.
+
 
 
 Q: What is Separation of concerns and how do you achieve that?
@@ -723,15 +619,18 @@ Q: What are the pre-requisites to run an angular application?
 Q How to create a new angular project
 	> ng new property-central
 
+
 Q How to create a new component
 	ng generate component property-details
 	OR
 	ng g c property-details
 
+
 Q How to create a service class
 	ng generate service common-service
 	OR
 	ng g s common-service
+
 
 Q How to create a new directive
 	ng generate directive auto-grow
@@ -767,6 +666,10 @@ Q: Diff between Dev build and Prod build (i.e. ng build --dev	VS  ng build --pro
 	- Prod Build:
 		. Does not produce sourcemap
 		. It generate main.bundle.js. It has minified and uglified code. Minified code (removing excess whitespaces, comments etc) and uglified code (transforming code to short variables)
+
+
+Q: How to enable PROD build?
+	ng build --prod
 
 
 Q: What is sourcemap
@@ -869,8 +772,6 @@ Q: What is Hot Module Reloading (HMR)?
 A: It is a feature of Webpack. Whenever, one of the source files is modified, webpack automatically refreshes the browser.
 
 
-Q: Can we use multiple pipes in angular? 
-A: Yes
 
 
 Q: Which compiler is used in Angular?
@@ -898,35 +799,298 @@ Q: Which image type do you prefer and where do you keep all images?
 A: It is preferred to use ".svg" files rather than ".png" or ".jpg" because ".svg" files are light weight and does not impact app performance much. Images are kept inside assets folder.
 
 
-Q: What is data binding and what are the different types of data bindings?
+* Q: What is data binding and what are the different types of data bindings?
+A: (1) one-way data binding:
+	- component to view:
+		. interpolation
+		. property binding: [class]="className", [disabled]="isDisabled"
+		. attribute binding: [attr.aria-label]="ariaLabelName"
+
+	- View to component:
+		. Event binding: (click)
+
+   (2) Two-way binding: combination of property and event binding. property binding is done first and then event binding.
+	. [(ngModel)]	: we need to import FormsModule from '@angular/forms' in app.module.ts file
+
+
+	
+* Q: Pipes in Angular?
+A: These are used to format a value before rendering it on the DOM. There are several in-build pipes provided by Angular.
+	- date
+	- uppercase
+	- lowercase
+	- currency
+	- number
+	- percent
+
+	- Custom Pipes:
+		. We can create custom pipes as well using @pipe decorator and implementing "PipeTransform" decorator.
+		. We need to define interface method "transform()"
+
+		
+* Q: Can we use multiple pipes in angular? 
+A: Yes
+
+
+* Q: What are directives in Angular?
+A: Directives are used to shape or reshape a DOM or behaviour of the HTML element. There are three types:
+	1. Structural directives: Responsible for HTML layout. They are used to add/remove/manipulate elements on the DOM. They start with "*"
+		. *ngIf
+		. *ngFor
+		. *ngSwitch
+		. *ngTemplateOutlet
+
+	2. Attribute directives: They are used to change/modify the behaviour of the HTML element. They are enclosed with square brackets [].
+		. [ngClass]
+		. [ngStyle]
+		. [(ngModel)]
+
+
+	3. Custom directives: 
+		. Can be created by using @Directive decorator. And the selector is enclosed in [].
+		. We need to inject ElementRef in the constructor of the directive class in order to gain access of HTML element where directive is used.
+		. <p appHighlight> Hello world </p>
+		. 
+
+
+* Q: What is HostListener?
+A: 	- This is a method decorator (@HostListener) that is used to perform some task as coded in the method based on the type event happens on the host.
+	- The scope of the HostListener is defined by where it is being used. For ex: If it is used in app.component then scope is entire application. If it is used inside a custom directive then the scope is limited to that HTML element where the directive is applied.
+
 
 
 Q: How component communication can be done? OR how to share data b/w components?
+A: Category A: Between parent and Child components
+	- @Input() decorator: From parent to Child
+    	- @Output() decorator and EventEmitter: From child to parent
+    	- @ViewChild() decorator: To access child component's methods and properties
+
+    Category B: Between two unrelated components	
+    	- Service: It follows "service with a subject" approach. In other words a service with BehaviorSubject. Where one component can insert data into BehaviorSubject using "next" and other component can subscribe to it and get the value.
 
 
-Q: What are different types of decorators in Angular?
+
+* Q: What are different types of decorators in Angular?
+A: 	- Class decorators: Top level decorators to define the purpose of a class. For ex:
+		. @ngModule: used for module
+		. @Component: used for component
+		. @Injectable: used for service
+		. @Directive: used for directive
+		. @Pipe: used for pipes
+
+	- Property decorators:
+		. @Input
+		. @Output
+		. @ViewChild
+		. @ViewChildren
+
+	- Method decorators:
+		. @HostListener
+
+	- Parameter decorators:
+		. @Inject
+		. @Optional
 
 
-Q: What is your fav topic in Angular?
+* Q: What is your fav topic in Angular?
 	- Data Binding, Sharing data b/w components
 
 
-
-Q: what is dependency injection? give me an example of how you can use it?
-
-
-Q: What is ng-template, ng-container, ng-content?
+* Q: what is dependency injection? give me an example of how you can use it?
 
 
-Q: What is async pipe, why do we use it?
+* Q: What is ng-template, ng-container, ng-content?
+A: 	- ng-template:
+		. It defines a template that is not rendered by default.
+		. it is defined with # (template reference variable)
+        	. You can re-use the content inside ng-template multiple times by using *ngTemplateOutlet structural directive
+        	. You can also provide data to ng-template using context
+	       . We can't apply css classes.
+
+	- ng-container: it removes an extra HTML element from the DOM as the contents inside it are directly rendered on the DOM.
+
+	- ng-content:	Used to render the contents of a component inside another component. For ex:
+		<app-parent>
+			<app-child></app-child>
+		</app-parent>
+
+		=== in parent.html ===
+		<p> hello parent <p>
+		<ng-content select="app-child"></ng-content>
+
+
+
+* Q: What is async pipe, why do we use it?
 	- Async pipe is used to subscribe to an observable and returns the latest value emitted by observable. i.e. we don't need to 
 	subscribe explicitly.
 	- When the component gets destroyed, the async pipe unsubscribes automatically to avoid any memory leaks. i.e. we don't need to
 	unsubscribe explicitly.
 
 
-i18n (internationalization)
+* Q: Difference between viewChild and viewChildren?
+A: 	- viewChild decorator: 
+		. It is used to get the element reference of the first matching element
+		. It can be used to refer an HTML element from the template and we can access native DOM element
+		. It can be used to refer a child component
+		. We can directly call the method of child component and we can pass any data to the child component.
+		. The reference is not available early in the life cycle of the component and its available in "AfterViewInit" life cycle hook
 
+	- viewChildren decorator:
+		.  Is is used to get the element references of all the matching elements as queryList of items.
+		. like ViewChild, the reference is not available early in the life cycle of the component and its available in "AfterViewInit" life cycle hook
+
+
+
+Q: Are you using any data mocking framework or service or library?
+A: yes, we are using Mock service worker (MSW) library in our project.
+
+
+
+
+Q: what is the monorepo? Have you worked on a monorepo?
+A: A monorepo is a single git repo that holds source code of multiple applications and libraries
+
+
+Q: What is nx framework? What are its benefits?
+A: Nx framework builds a project graph by analyzing your workspace and then next time onwards it rebuild only what is necessary and does not build anything twice. For ex: I raised a PR with 2 files and when I commit my code then NX will only run linting on these 2 files that got changed rather than on entire project and similarly for jest unit test cases which improves overall build time. 
+
+
+Q: what is npx?
+A: It stands for "node package execute". It is an npm package runner that can directly execute the npm package from npm registry without even installing that package.
+
+
+Q: What is HttpIntercepter?
+A: 	- It is an Angular interface which can be implemented in an Angular service. The method name is 'intercept()'. It sits between application and backend. When application makes an Http request then interceptor caches the request before it is sent to the backend. By intercepting requests we will get access to request headers and body. This will enable us to transform the request before sending it to server. 
+	- Similarly when the request comes back from backend the interceptor can transform it before passing it to application.
+	- The main benefit of HttpInterceptor is to add authorization header to every request.
+
+
+Q: How to see stable and alpha version of an npm package?
+A: npm show @bbp/approvals-widget
+
+
+Q: How to build and publish an npm library?
+A: 	1. ng build <lib name> .... 	ng build tag-manager-service
+	1. cd to the dist folder .... 	cd dist/tag-manager-service
+	2. npm publish -- registry <Registry-URL>
+
+
+Q: How to publish alpha version of an npm package?
+A: npm publish -- tag alpha --registry <registry-url>
+
+
+Q: What are schematics? default schematics? Can we have multiple schematics?
+A: 	- Schematics can be used to quickly generate an angular component, library, service, directive etc.
+	- Angular application comes with default schematics i.e. @schematics/angular. 
+	For ex:
+		. Create component: @schematics/angular:component activity-log
+		. Create service: @schematics/angular:service transactions
+		. create directive: @schematics/angular:directive auto-grow
+	- Yes, we can have multiple schematics in an angular application. For ex: default angular schematics, @nrwl/angular schematics, any custom schematics
+		
+
+Q: Annotation vs decorator (@component, @pipe, @injectable)
+A: Annotations are used are used for metadata. But Decorators are used to identify the type of class, method, property and parameter. For ex: ngModule, component, service, pipe, directive etc.
+
+
+Q: What are micro frontends?
+A: It is basically a design approach in which a front-end app is decomposed into individual multiple semi-independent "micorapps" working together. There are many benefits of using microfrontends.
+	- Technology agnostic: i.e. each each team can do development in their own tech stack without worrying about using the same technology. 
+	- Isolate team code and build independent apps and not to rely on shared state.
+
+
+Q: What is Injection Token?
+A: There are situations where we need to use environment variables like a URL, into components or services then there are two options we could use those environment variables into our components or service
+	(1) Import them directly, which is a bad practice as app level code should be separated from libs. So, we will avoid this approach.
+	(2) 2nd and a recommended approach is to use Injection tokens and by using that we can easily inject environment variable into our components or services without importing environment files. In order to do that we need to provide that injection token in 'providers[]' array in app.module with the value from environment variable and then Inject the injection token using @Inject decorator as a dependency in the constructor of the component.
+	OR you can use ModuleWithProviders (as mentioned below)
+
+
+Q: what is ModuleWithProviders?
+A: Sometimes, there are situations when we have individual modules in your big app then instead of having a plain module, we could use 'ModuleWithProviders' and have a 'providers[]' array where we can provide Injection Token name and value coming from app.module.
+
+
+Q: What is APP_INITIALIZER and when do you want to use it?
+A: 	- This is a built in Injection Token provided by Angular. We mention this in 'providers[]' array in app.module and we can use 'useFactory' to provide a function to be executed when app is initialized. We can also mention the dependencies using 'deps' keyword. If there are multiple dependencies then we can mention 'multi' attribute = true.
+	- We want to use APP_INITIALIZER when we want to execute a function when the application loads. So basically, this function will be executed even before app.component code.
+
+
+
+======= NgRx (State Management) =========
+Q: Describe NgRx overall or a brief understanding?
+A: 	- NgRx is a state management javascript library that is used to store application state in client and utilizing it from all over the application.
+	- State is a single javascript object which is immutable i.e. there is no direct store API to change the state. State can be changed by Reducer fn.
+	- State is defined in reducer class as an interface and also provide a an initialState with some initial values.
+	- There are mainly 5 components in NgRx namely:
+	(1) Actions
+	(2) Reducers
+	(3) Selectors
+	(4) Facade
+	(5) Effects
+	Then explain the diagram.
+
+
+Q: What are actions?
+A: These are the unique events of the application with optional 'props' property to provide any payload data when a particular action is dispatched.
+
+
+Q: What are reducers?
+A: 	- Reducers are pure functions and are responsible for changing the state based on provided action. For ex: 
+	- If we need to load client data then we need to dispatch a corresponding action like 'loadClientData' and reducer function will update the state by turning the loading flag to true so the user could see a loading indicator while data is being fetched from backend API. 
+	- Similarly, when data is successfully received from backend API then we could dispatch another action like 'loadClientSuccess' and the corresponding reducer function will update the status by updating data property and loading flag to false. So that loading indicator is hidden and user could actually see the on the page.
+
+
+Q: What are selectors?
+A: 	- Selectors are pure functions. 
+	- When we define a selector then we mention two functions like "Mapping Function" that holds complete state and "Projector Function" that returns slice of data. For ex: a selector with name "selectClientData" may return client data from the store as one of the slices of the entire state. On the other hand, selector with name "selectClientLoading" may return loading indicator (i.e. a flag value) as one of the slices of entire state.
+
+
+Q: What is facade?
+A: 	- Facade is an angular service injectable at root. It works as an intercept between application components and rest of the NgRx files. In other words, if a component needs to dispatch an action then it may call a user defined function written inside facade which in turns dispatch an action.
+	- We can write observables here that return slices of data using selectors. For ex: We can write clientData$ = store.select(selectClientData) and we can use this observable from anywhere in the app.
+
+
+Q: What are effects?
+A: 	- We need a separate ngrx library (@ngrx/effects) to use effects. Effects are angular services injectable at root. 
+	- Effects are used to communicate with backend services to execute HTTP requests based on the action dispatched.
+	- Effect returns a new action. For ex: Based on the state of the service response i.e. 200 or 500 (or any other error) it may dispatch a corresponding action like success action or error action respectively.
+
+
+Q:What is the use of forFeature()?
+A: forFeature() is used to configure storeModule and effectsModule in the Imports array of ngModule class.
+
+
+Q: What is component store? How its different from application store?
+A: 	- component store is a separate library namely "@ngrx/component-store" that helps to manage local/component state.
+	- Its an alternative to "service with a subject" approach.
+	- Local state needs to be initialized
+	- Local state is tied to life cycle of the component i.e. state is cleared when component is destroyed
+	- setState() is used to update a state 
+
+
+
+=============== * i18n (internationalization) ============
+Q: What is internationalization?
+A:	- ngx-translate
+	- neneat/transloco
+	methods:
+		. getActiveLang(): to get current selected language
+		. langChanges$: observable for language change
+		. selectTranslate(): to get translations of the specified key and optional parameters.
+		. selectTranslateObject(): to get translations of a specified object
+
+
+Q: How do you load translation files for lazy loaded modules as and when they are required?
+A: 	- Each individual project/module in the app has assets folder that keeps translations files for different languages.
+	- In angular.json, there is an array namely 'assets[]' and there we need to configure objects for all modules in the app.
+	- In that object we provide three properties namely 
+		. "glob": to mention the path. Generally "**/*"
+		. "input": source path of translation files i.e. path to assets folder in individual modules
+		. "output": destination path of the translation files i.e. path to assets folder in app folder.
+
+
+
+============== * a11y (accessibility)====================
 
 Q: What do you understand by a11y (accessibility) requirements?
 A: 	
@@ -936,19 +1100,15 @@ A:
 	- there are bootstrap classes also for accessibility. For ex: sr-only
 
 	ARIA = accessible rich internet application
-	- No ARIA is better than a bad ARIA.
+	- No ARIA is better than a bad ARIA as it will convey incorrect information to the user
 
 	- There are some browser tools to test accessibility requirements
 		For ex: Wave, Axe etc.
 
 
-Q: Difference between viewChild and viewChildren?
-A: 	- viewChild decorator is used to get the element reference of the first matching element whereas 
-	- viewChildren decorator is used to get the element references of all the matching elements as queryList of items.
+====== * Routing =======
+Note: Read other questions from "hello-world-shally"
 
-
-
-====== Routing =======
 Q: What is Angular router?
 
 Q: Why it is important to keep a proper order of routes ?
@@ -967,29 +1127,42 @@ Q: What are nesting routes?
 Q: What is Lazy loading of feature modules ? 
 
 Q: What is a route guard?
-A: These are interfaces provided by Angular that allow us to control accessibility of a route based on conditions provided in a service class that implements those interfaces. For ex: Usually the normal user will start navigation of the application through sign-in page and then navigate to different menus/screens. So the authentication is already done on sign in page like whether user is eligible or not. But an authorized user may directly hit the URL of a particular screen and then the use of route guards come into picture. We can call a service to check eligibility of the user if not eligible then we could redirect then to sign-in page. There are various interfaces like 
+A: 	- These are used to prevent users from navigating to different parts of an application without authorization.
+	- These are interfaces provided by Angular that allow us to control accessibility of a route based on conditions provided in a service class that implements those interfaces. 
+	- For ex: Usually the normal user will start navigation of the application through sign-in page and then navigate to different menus/screens. So the authentication is already done on sign in page like whether user is eligible or not. But an un-authorized user may directly hit the URL of a particular screen and then the use of route guards come into picture. Inside the route guard, we can call a service to check eligibility of the user. If user is eligible then we can return true so user is able to navigate to that page. If user is not eligible then we could redirect them to sign-in page. 
+	- There are various interfaces like 
 	- CanActivate: 	checks the route access
-	- CanActivateChild: 	checks the child route access. For ex: the requirement is such that we don't need a guard on root level but children components must have guard then one option is to put 'CanActivate' guard on all children routes which is tedious and other option is to use 'CanActivateChild' guard at once. 
+	- CanActivateChild: 	checks the child route access. For ex: the requirement is such that we don't need a guard on root level but children components must have guard then one option is to put 'CanActivate' guard on all children routes which is tedious and other option is to use a single 'CanActivateChild' guard. 
 	- CanDeactivate:	Checks for any unsaved changes and if so then deactivates the route. For ex: there is a form where user is supposed to enter some data and user tries to navigate away to a different route. In this scenario we can use CanDeactivate guard which will deactivate the route and we can then open a dialog box to take user confirmation.
 	- CanLoad (TRY THIS): 		This guard is used with lazy loaded modules to prevent unauthorized access to any of the routes of the module and prevents the module from being downloaded and hence the user cannot see source code in developer tools of the browser.
-	- Resolve (TRY THIS): 		This is also known as 'Angular Resolver'. This allows us to load data before navigating to the route. There are two ways to load the data (1) navigate to the component and then call a service from ngOnInit life cycle hook to fetch data and show loading indicator while data is being fetched. (2) Use 'Resolve' guard to prefetch the data before navigating to the route. Hence the component is rendered along with data.
+	- Resolve (TRY THIS): 		This is also known as 'Angular Resolver'. This allows us to load data before navigating to the route. There are two ways to load the data (1) navigate to the component and then call a service from ngOnInit life cycle hook to fetch data and show loading indicator while data is being fetched. (2) Use 'Resolve' guard to prefetch the data before even navigating to the route. Hence the component is rendered along with data.
+
+
+Q: How to navigate from HTML template?
+A: <a routerLinkActive="active" routerLink="/feature1"> Feature 1 </a>
+
+
+Q: How to navigate from component class?
+A: router.navigate(['/feature1'])
 
 
 
-=========== FORMS ===========
+=========== * FORMS ===========
 Q: What are different types of forms in Angular?
-A: Two types of forms in Angular2
+A: Two types of forms in Angular
 	1) Template driven forms: 
 	    . To create simple forms
 	    . most of the work is done in HTML 
-	    . Some standard HTML5 validations like. Not full control over form validation
+	    . Some standard HTML5 validations like
 	        required
 	        maxlength
 	        min
 	        max
 	        pattern
+	    . No full control over form validations
+
 	2) Reactive Forms (Model driven forms): 
-	   . To create more complex forms but full control over form validations
+	   . Used to create more complex forms but full control over form validations
 	   . most of the work is done in component class, therefore, easy to unit test 
 	   . complex validations can be done
 	   . Custom validators can be created
@@ -997,7 +1170,7 @@ A: Two types of forms in Angular2
 
 
 Q: What is template reference variable?
-A: It is defined with # (hash character). For ex: <ng-template>, @ViewChild
+A: It is defined with # (hash character). For ex: <ng-template>, @ViewChild, @ViewChildren
 
 
 Q: What are HTML5 built-in validators (template driven validators)?
@@ -1024,10 +1197,21 @@ A: These validation properties are available at FORM level as well as at each in
 
 
 Q: Difference between setValue() and patchValue() methods?
+A: setValue():
+	- It can be used at individual form control level to set value of it.
+      		. ex: this.employeeForm.get('fullName').setValue('John Doe');
+	- It can also be used at form level to set value of the whole form group. Usually the value comes from API.
+	- While setting value of the entire form group, it is a must to supply value of all form controls.
+        	. ex: this.employeeForm.setValue(obj); // here obj contains all form controls
+
+  patchValue():
+	- It is used to update the value of an individual form control
 
 
 Q: What is FormBuilder class?
-A: It is a service class which needs to to injected in our component class. It has few methods like group(), array()
+A: 	- It is a service class which needs to to injected in our component class. 
+	- It is used to define and initialize form controls
+	- It has a few methods like group(), array()
 
 
 Q: What are various Built-in validators in reactive Forms?
@@ -1036,6 +1220,27 @@ A: 	required
 	maxLength
 	pattern : regEx pattern
 	email
+
+
+Q: how to write custom validations in reactive forms?
+A: It is regular function that accepts a parameter of type "AbstractControl" and return an object with key, value pair.
+
+function domainCustomValidation(control: AbstractControl): { [key: string]: any } | null {
+  const email = control.value;
+  const emailDomain = email.substring(email.lastIndexOf('@') + 1);
+  if (emailDomain.toLowerCase() === 'gmail.com') {
+    return null; // valid email domain
+  } else  {
+    return { 'domain': true };   // invalid email domain
+  }
+}
+
+
+Q: Can we have a mix of built-in and custom validations on a form control?
+A: yes
+	this.employeeForm = this.fb.group({
+	   email: ['', [Validators.required, Validators.email, domainCustomValidation]],
+	});
 
 
 Q: How to add validators dynamically?
@@ -1059,18 +1264,18 @@ A:
 	insert(): inserts the control at the specified index in the array
 	removeAt(): Removes the control at the specified index in the array
 	setControl(): Replace an existing control at the specified index
-	at(): return the control the specified index in the array
+	at(): return the control with the specified index in the array
 
 
 Q: How to generate formGroup and formControls dynamically?
-A: we can generate these by using group() method of formBuilder Class and we can define all form controls, their default values, and validators if any.
+A: we can generate these by using group() method of formBuilder class and we can define all form controls, their default values, and validators if any.
 
 
 Q: How to do validations in angular?
-A: we can do validations in Angular using reactive forms. 
+A: we can do validations in Angular using reactive forms. we can write custom validations as well.
 
 
-Q: How to detect if any changes in FormGroup (ex: employeeForm) and any control inside form?
+Q: How to detect if any changes in FormGroup (ex: employeeForm) and any control inside the form?
 A: we can subscribe to "valueChanges" property. 
   Ex: For detecting any changes in form: 
   this.myForm.valueChanges.subscribe(val => {
@@ -1292,8 +1497,6 @@ Q: Can we do dev build and not generate sourcemap? [YES]
 Q: Can we do prod build and generate sourcemap? [YES]
 	- ng serve --prod -sm true
 
-
-Q: How to enable PROD build?
 
 
 Q: What is "HttpInterceptorService" and when do we need to use it?

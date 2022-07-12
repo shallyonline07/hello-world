@@ -24,7 +24,7 @@
     Q: <b>Diff between RouterModule.forRoot() and RouterModule.forChild()?</b>
         - forRoot(): 
             1. It is used to configure top level (root level) routes in an angular application.
-            2. It is used only once in the application.
+            2. For route configuration purposes, it is used only once in the application .
         - forChild(): 
             1. It is used to configure any other routes in an angular application. For ex: We can configure routes
             for lazy loaded feature modules.
@@ -42,7 +42,7 @@
             components/modules are loaded. This increases the load time of the application home page. If the application is big
             then this problem even grows bigger. Therefore, lazy loading allows angular to load components/modules as and when
             they're needed.
-        - To implement this we can use loadChildren() in app-routing module.
+        - To implement this we can use loadChildren() callback function in app-routing module.
 
     Q: <b>What is a route guard?</b>
         - These are used to prevent users from navigating to parts of an application without authorization.
