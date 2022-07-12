@@ -1,15 +1,25 @@
 TODO: 
 
-	- Nx (Mono-repos)
-	- NgRx questions
-	- Accessibility and browser tools (Axe, )
-	- Micro frontends
-	- HTTP intercepter
-	- 
-	- Annotation vs decorator (@component, @pipe, @injectable)
+Router.Navigate
+ActivatedRoute
 
-Npm publish
-Build a lib command
+
+
+
+
+MSW
+
+
+
+Q: What are the things you look for in a code review?
+A: I look for various things like Quality, maintainability, readability, resiliency.
+	- Quality: 
+		. No calling of component functions on template, rather use pipes
+	- Maintainability: 
+		. Dissect a big function into smaller functions to better unit test those
+		. Use of <ng-template> to write HTML code one time and call it by passing context to cater to different requirements.
+	- Readability: 
+		. Better naming conventions 
 
 
 
@@ -33,6 +43,118 @@ A: 	1. XSS: Angular has a built-in protection mechanism against web app vulnerab
 
 	6. Validate user submitted data on server side code. Because attackers can use cross site scripting (XSS) methods to manipulate critical data if validated at client side. Therefore, validating user data at service side prevents app from this kind of attack.
 
+
+Q: what is the monorepo? Have you worked on a monorepo?
+A: A monorepo is a single git repo that holds source code of multiple applications and libraries
+
+
+Q: What is nx framework? What are its benefits?
+A: Nx framework builds a project graph by analyzing your workspace and then next time onwards it rebuild only what is necessary and does not build anything twice. For ex: I raised a PR with 2 files and when I commit my code then NX will only run linting on these 2 files that got changed rather than on entire project and similarly for jest unit test cases which improves overall build time. 
+
+
+Q: what is npx?
+A: It stands for "node package execute". It is an npm package runner that can directly execute the npm package from npm registry without even installing that package.
+
+
+Q: What is HttpIntercepter?
+A: 	- It is an Angular interface which can be implemented in an Angular service. The method name is 'intercept()'. It sits between application and backend. When application makes an Http request then interceptor caches the request before it is sent to the backend. By intercepting requests we will get access to request headers and body. This will enable us to transform the request before sending it to server. 
+	- Similarly when the request comes back from backend the interceptor can transform it before passing it to application.
+	- The main benefit of HttpInterceptor is to add authorization header to every request.
+
+
+Q: How to see stable and alpha version of an npm package?
+A: npm show @bbp/approvals-widget
+
+
+Q: How to build and publish an npm library?
+A: 	1. ng build <lib name> .... 	ng build tag-manager-service
+	1. cd to the dist folder .... 	cd dist/tag-manager-service
+	2. npm publish -- registry <Registry-URL>
+
+
+Q: How to publish alpha version of an npm package?
+A: npm publish -- tag alpha --registry <registry-url>
+
+
+Q: What are schematics? default schematics? Can we have multiple schematics?
+A: 	- Schematics can be used to quickly generate an angular component, library, service, directive etc.
+	- Angular application comes with default schematics i.e. @schematics/angular. 
+	For ex:
+		. Create component: @schematics/angular:component activity-log
+		. Create service: @schematics/angular:service transactions
+		. create directive: @schematics/angular:directive auto-grow
+	- Yes, we can have multiple schematics in an angular application. For ex: default angular schematics, @nrwl/angular schematics, any custom schematics
+		
+
+Q: Annotation vs decorator (@component, @pipe, @injectable)
+A: Annotations are used are used for metadata. But Decorators are used to identify whether its a ngModule, component, service, pipe, directive etc.
+
+
+Q: What are micro frontends?
+A: It is basically a design approach in which a front-end app is decomposed into individual multiple semi-independent "micorapps" working together. There are many benefits of using microfrontends.
+	- Technology agnostic: i.e. each each team can do development in their own tech stack without worrying about using same technology. 
+	- Isolate team code and build independent apps and not to rely on shared state.
+
+
+Q: What is Injection Token?
+A: There are situations where we need to use environment variables like a URL, into components or services then there are two options we could use those environment variables into our components or service
+	(1) Import them directly, which is a bad practice as app level code should be separated from libs. So, we will avoid this approach.
+	(2) 2nd and a recommended approach is to use Injection tokens and by using that we can easily inject environment variable into our components or services without importing environment files. In order to do that we need to provide that injection token in 'providers[]' array in app.module with the value from environment variable and then Inject the injection token using @Inject decorator as a dependency in the constructor of the component.
+	OR you can use ModuleWithProviders (as mentioned below)
+
+
+Q: what is ModuleWithProviders?
+A: Sometimes, there are situations when we have individual modules in your big app then instead of having a plain module, we could use 'ModuleWithProviders' and have a 'providers[]' array where we can provide Injection Token name and value coming from app.module.
+
+
+Q: What is APP_INITIALIZER and when do you want to use it?
+A: 	- This is a built in Injection Token provided by Angular. We mention this in 'providers[]' array in app.module and we can use 'useFactory' to provide a function to be executed when app is initialized. We can also mention the dependencies using 'deps' keyword. If there are multiple dependencies then we can mention 'multi' attribute = true.
+	- We want to use APP_INITIALIZER when we want to execute a function when the application loads. So basically, this function will be executed even before app.component code.
+
+
+
+======= NgRx (State Management) =========
+Q: Describe NgRx overall or a brief understanding?
+A: 	- NgRx is a state management javascript library that is used to store application state in client and utilizing it from all over the application.
+	- State is a single javascript object which is immutable i.e. there is no direct store API to change the state. State can be changed by Reducer fn.
+	- State is defined in reducer class as an interface and also provide a an initialState with some initial values.
+	- There are mainly 5 components in NgRx namely:
+	(1) Actions
+	(2) Reducers
+	(3) Selectors
+	(4) Facade
+	(5) Effects
+	Then explain the diagram.
+
+
+Q: What are actions?
+A: These are the unique events of the application with optional 'props' property to provide any payload data when a particular action is dispatched.
+
+
+Q: What are reducers?
+A: 	- Reducers are pure functions and are responsible for changing the state based on provided action. For ex: 
+	- If we need to load client data then we need to dispatch a corresponding action like 'loadClientData' and reducer function will update the state by turning the loading flag to true so the user could see a loading indicator while data is being fetched from backend API. 
+	- Similarly, when data is successfully received from backend API then we could dispatch another action like 'loadClientSuccess' and the corresponding reducer function will update the status by updating data property and loading flag to false. So that loading indicator is hidden and user could actually see the on the page.
+
+
+Q: What are selectors?
+A: 	- Selectors are pure functions. 
+	- When we define a selector then we mention two functions like "Mapping Function" that holds complete state and "Projector Function" that returns slice of data. For ex: a selector with name "selectClientData" may return client data from the store as one of the slices of the entire state. On the other hand, selector with name "selectClientLoading" may return loading indicator (i.e. a flag value) as one of the slices of entire state.
+
+
+Q: What is facade?
+A: 	- Facade is an angular service injectable at root. It works as an intercept between application components and rest of the NgRx files. In other words, if a component needs to dispatch an action then it may call a user defined function written inside facade which in turns dispatch an action.
+	- We can write observables here that return slices of data using selectors. For ex: We can write clientData$ = store.select(selectClientData) and we can use this observable from anywhere in the app.
+
+
+Q: What are effects?
+A: 	- We need ngrx library to define effects. Effects are angular service injectable at root. 
+	- Effects are used to communicate with backend services to execute HTTP requests based on the action dispatched.
+	- Effect returns a new action. For ex: Based on the state of the service response i.e. 200 or 500 (or any other error) it may dispatch a corresponding action like success action or error action respectively.
+
+
+Q:What is the use of forFeature()?
+A: forFeature() is used to configure storeModule and effectsModule in the Imports array of ngModule class.
 
 
 
@@ -455,8 +577,8 @@ Q: Difference between observable and promise?
 	- Observables are lazy. Means nothing happens until you subscribe to them.
 
 	5. 
-	- With Promises, if we have to call a service multiple times then we will have to explicitely write the code to call it multiple times.
-	- With Observables, we can use .retry(n) operator to call the service n number of times w/o explicitely writing the code.
+	- With Promises, if we have to call a service multiple times then we will have to explicitly write the code to call it multiple times.
+	- With Observables, we can use .retry(n) operator to call the service n number of times w/o explicitly writing the code.
 
 
 
@@ -482,7 +604,7 @@ Q: Difference between observable and promise?
 		- it returns the first count values emitted by source observable.
 	
 	switchMap():
-		- As its name suggests, it cancels previous observable, uses the value from it and suppy that value to new observable. 
+		- As its name suggests, it cancels previous observable, uses the value from it and supply that value to new observable. 
 		
 	combineLatest():
 		- It combines the multiple observables by taking most recent value from each input observable
@@ -519,7 +641,7 @@ Q: Difference between observable and promise?
 	mergeMap() / flatMap():
     		- It combines two observables and execute in parallel and finish the operation once all observables are completed
     		- If one request (observable) fails then it does not hamper the overall response
-    		- It is NOT guaranteed that order will be maintained in the response
+    		- Order is not maintained in the response
   
 	forkJoin():
     		- It combines two observables and execute in parallel and finish the operation once all observables are completed
@@ -532,8 +654,7 @@ Q: Difference between observable and promise?
   
 
 Q: Difference between take(1) and first()?
-A: Both are same in a way that both emits the first emitted value. The difference is that if there is no
-	emitted value then take(1) will not give any error where first() will give an error.
+A: Both are same in a way that both emits the first emitted value. The difference is that if there is no emitted value then take(1) will not give any error where first() will give an error. So better to use take(1).
 	
 
 Q: When to use takaUntil() and when to use subscription.unsubscribe()?
@@ -552,8 +673,26 @@ Q: Difference between Subject and BehaviorSubject?
 	    . It is required to provide an initial value (it holds a value)
 
 
+Q: shareReplay()?
+A: 	- Sometimes in the template file, we need to use async pipe multiple times on the same observable. In such cases we are subscribing to an observable multiple times and hence multiple network calls. So, in order to avoid multiple network calls and keep it only once, we can use shareReplay() rxjs operator inside pipe() function.
+	- It broadcast same value to all subscribers. In our case async pipes.
+	- It converts a cold observable to a hot observable.
 
 
+Q: Difference b/w Hot and Cold Observables?
+A: Cold Observable:
+	- It emits values only when you subscribe for it.  
+	- It emits unique value (unicasting)
+	- Ex: http client. 
+      There will be a network call everytime we subscribe for it.
+      So, if we use async pipe twice in the template then we are subscribing it twice. So 2 network calls.
+      We can transform this cold observable to hot by using shareRepay() rxjs operator. Now, even though
+      we are subscribing twice, but there is only one network call.
+
+   Hot Observables:
+	- It emits values regardless of whether you subscribe it or not.
+    	- It broadcast same value to all subscribers (i.e. multicasting)
+    	- Ex: all subjects like Subject, BehaviorSubject, shareReplay, Wife
 
 
 ******************************************************************
@@ -791,7 +930,7 @@ i18n (internationalization)
 
 Q: What do you understand by a11y (accessibility) requirements?
 A: 	
-	- It means if a website is accessible to everyone including visually impaired people, people with less motor skills like shaky hands. 	- Such people should be able to access a website.
+	- It means whether a website is accessible to everyone including visually impaired people, people with less motor skills like shaky hands. Such people should be able to access a website.
 	- There are some HTML elements and attributes for aria which we can use to implement accessibility requirements. 
 		For ex: <aria-label>, aria-hidden = "true", aria-required = "true"
 	- there are bootstrap classes also for accessibility. For ex: sr-only
@@ -803,8 +942,13 @@ A:
 		For ex: Wave, Axe etc.
 
 
+Q: Difference between viewChild and viewChildren?
+A: 	- viewChild decorator is used to get the element reference of the first matching element whereas 
+	- viewChildren decorator is used to get the element references of all the matching elements as queryList of items.
 
-	====== Routing =======
+
+
+====== Routing =======
 Q: What is Angular router?
 
 Q: Why it is important to keep a proper order of routes ?
@@ -832,8 +976,7 @@ A: These are interfaces provided by Angular that allow us to control accessibili
 
 
 
-
-	=========== FORMS ===========
+=========== FORMS ===========
 Q: What are different types of forms in Angular?
 A: Two types of forms in Angular2
 	1) Template driven forms: 
@@ -1046,6 +1189,32 @@ A: I think 80% is a good coverage. But, Jest is pretty easy so we can also aim f
 	- Branches  		--> if, else
 	- Functions		--> computeSum()
 	- Lines
+
+
+
+
+******************************************************************
+====================== CYPRESS ===================================
+******************************************************************
+- Cypress is e2e testing javascript library
+- It uses Cucumber Gherkin language to write step definitions in the feature file. Given, When, And, Then
+- Here we
+
+Q: Examples of cypress built in functions:
+	. cy.visit(url): to navigate a url
+	. cy.contains(assertion): to asset if provided assertion is present on DOM.
+	. cy.get(`[data-test-id=${selector}]`).contains(assertion);
+	. cy.get(`[data-test-id=${selector}]`).click({ force: true });
+	. cy.get(`[data-test-id=${selector}]`).eq(0).click({ force: true });
+
+	. cy.get(`[data-test-id=${selector}]`).as('previousSelector');
+	. cy.get('@previousSelector').type(input);
+	. cy.get('@previousSelector').clear();
+	. cy.get('@previousSelector').should('have.value', input);
+
+	. cy.get(`[data-test-id=${selector}]`).select(option);
+	. cy.wait(500);
+	. cy.url().should('include', route);
 
 
 

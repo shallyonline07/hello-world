@@ -5,7 +5,7 @@
     - It emits unique value (unicasting)
     - Ex: http client. 
       There will be a network call everytime we subscribe for it.
-      Like in below example, we are subscribing it throught async pipe twice. So 2 network calls.
+      Like in below example, we are subscribing it through async pipe twice. So 2 network calls.
       We can transform this cold observable to hot by using shareRepay() rxjs operator. Now, even though
       we are subscribing twice, but there is only one network call.
 
